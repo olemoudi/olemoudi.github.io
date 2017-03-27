@@ -1,0 +1,15 @@
+
+
+.hl {
+    color: #ff3300;
+}
+
+
+acronym {
+    color: #ffb;
+    
+}
+acronym:hover {
+    cursor: help;
+    color: #ff3300;
+}

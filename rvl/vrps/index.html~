@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Security and Open Redirects</title>
+
+        <meta name="description" content="Security impact of redirecting people in 2013">
+        <meta name="author" content="Martin Obiols @olemoudi">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
+        <link rel="stylesheet" href="css/ole.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                <h1>Security and Open Redirects</h1>
+                <br>
+                <h3>Impact of <font class="hl">301</font>-ing people in 2013</h3>
+                <br>
+                <p>
+                <img width="450px" height="83px" src="" style="line-height: 1.2em;letter-spacing: -0.02em;">
+                </p>
+                </section>
+
+                <section>
+                <h2>What's this deck about?</h2>
+                <div>
+                    <ol>
+                        <li>
+                        Quick recap of Open Redirects
+                        </li>
+                        <li data-fragment-index="0" class="fragment">Potential <font class="hl">security impact</font> on certain cases<br>
+                        </li>
+                        <li data-fragment-index="1" class="fragment">Take away minutes for both devs and users</li>
+                    </ol>
+                </div>
+                </section>
+
+                <section>
+                <h2>Is it really necessary?</h2>
+                </section>
+
+                <section>
+                <h1>YES!</h1>
+                <br>
+                <div>
+                    <ul>
+                        <li>Open Redirs are everywhere
+                        </li>
+                        <li>Open Redirs are usually neglected (for a good reason)
+                        </li>
+                        <li>Not even <a href="https://www.owasp.org/index.php/Open_redirect">OWASP</a> takes them seriously
+                        </li>
+                        <li>Truth is, <b>
+                            <font class="hl">they CAN become an issue</font>
+                        </b>
+                        </li>
+                        <li>Their impact on complex apps is not easy to grasp</li>
+                    </ul>
+                </div>
+                </section>
+
+                <section>
+            <h2>A world of <font class="hl">subtleties</font>
+            </h2>
+            <br>
+            <div>
+                <ul>
+                    <li>Different redirection techniques
+                    </li>
+                    <li>Browsers do not behave consistently
+                    </li>
+                    <li>Different contexts produce different results
+                    </li>
+                    <li>Frequently chained with other vulnerabilities</li>
+                </ul>
+            </div>
+            </section>
+
+            <section>
+            <h2>So let's learn...</h2>
+            <h3>...<font class="hl">why</font> and <font class="hl">when</font> to take them into account</h3>
+            </section>
+
+            <section>
+            <h2>A quick recap</h2>
+            <blockquote>Open Redirects: Any functionality on a web application that can be used to redirect users to arbitrary resources</blockquote>
+            <br>
+            <div data-fragment-index="1" class="fragment">
+            <h3>Accomplished by means of...</h3>
+            <ul>
+                <li>
+                <font class="hl">HTTP 30x status codes </font>: purest form
+                </li>
+                <li>
+                <font class="hl">Refresh meta tag / header </font>: slower and sometimes (un)safer
+                </li>
+                <li>
+                <font class="hl">Javascript </font>: <font face="courier new">location</font> API mostly
+                </li>
+                <li>
+                onclick redirects : interstitials, content proxies...
+                </li>
+                <li>
+                other weird methods : WML <a href="http://www.tutorialspoint.com/wml/wml_go_tag.htm">&lt;go&gt;</a> tag (Opera)
+                </li>
+            </ul>
+            </div>
+            </section>
+
+            <section>
+            <h3>HTTP 30x Status codes
+            </h3>
+            <div style="text-align: left;">
+                <p>
+                <font face="courier new"><b><span class="hl">301</span> Moved Permanently</b></font>
+                <br>
+                <font face="courier new"><b><span class="hl">302</span> Found</b></font>
+                <br>
+                <font face="courier new"><b><span class="hl">303</span> See other</b></font>
+                </p>
+                <p>
+                <ul>
+                    <li>
+                    Generate new request for the URL in 
+                    <font face="courier new">Location:</font> header
+                    </li>
+                    <li>
+                    <font face="courier new">POST </font>verb is replaced by <font face="courier new">GET </font>and request body removed</li>
+                    <li>
+                    <font face="courier new">location.hash</font> is forwarded even cross-domain<br>
+                    </li>
+                </ul>
+                </p>
+                <div data-fragment-index="1" class="fragment">
+                <p>
+                <font face="courier new">
+                    <b><span class="hl">307</span> Temporary redirect</b>
+                </font> (HTTP 1.1 only)
+                </p>
+                <p>
+                <ul>
+                    <li>Like 302 but POST is not downgraded to GET</li>
+                    <li>Rarely seen</li>
+                </ul>
+                </p>
+            </div>
+            </div>
+            </section>
+
+            <section>
+            <h3>Refresh meta tag / header</h3>
+            <div style="text-align: left;">
+            <p>
+            <font face="courier new">
+                &lt;meta http-equiv="refresh" 
+                <br>
+                content="0;URL=scheme://authority/"&gt;
+            </font>
+            <br>
+            <br>
+            <font face="courier new">
+            Refresh: 0;url=scheme://authority
+            </font>
+            </p>
+            <br>
+            <ul>
+                <li>
+                Usually used for deferred redirections (Interstitials)
+                </li>
+                <li>Also for intentional <span class="hl">Referer stripping</span></li>
+                <li>URLs with semicolons may cause problems and cannot be escaped reliably</li>
+            </ul>
+        </div>
+            </section>
+
+            <section>
+            <h3>Javascript redirects</h3>
+            <div style="text-align: left;">
+            <font face="courier new">
+            <p>
+                location = ... ;
+            <br>
+                location.replace(...);
+            <br>
+                location.assign(...);
+            <br>
+                location.href = ... ;
+            </p>
+            </font>
+            <ul>
+                <li>
+                Most browsers populate <font face="courier new">Referer</font> header
+                </li>
+                <li>
+                IE 9 also does, but IE <=8 does not (<font face="courier new">link.click()</font> workaround)
+                </li>
+
+            </ul>
+        </div>
+            </section>
+
+            <section>
+            <h3>Open redirects habitat
+            </h3>
+            <div>
+                <ul>
+                    <li>login/logout pages (<font face="courier new">?next= ?path= ?goto= ?returnto=...)</font>
+                    </li>
+                    <li>SSO and Authorization frameworks (SAML, OAuth2...)
+                    </li>
+                    <li>Identity providers
+                    </li>
+                    <li>Filewrappers and content proxies
+                    </li>
+                    <li>Clicktrackers, Interstitial warnings
+                    </li>
+                    <li><a href="http://en.wikipedia.org/wiki/Post/Redirect/Get">Post/Redirect/Get</a> design patterns
+                    </li>
+                </ul>
+            </div>
+            </section>
+
+            <section>
+            <div style="text-align: justify;">
+            <h5>
+                Since providing arbitrary redirections may be considered the very purpose of certain applications (such as URL shorteners), Open Redirections are usually only <span class="hl">discussed</span> in the context of security and <span class="hl">as potential targets for abuse</span>.
+            </h5>
+        </div>
+            </section>
+
+            <section>
+            <h3>Potentially malicious usage 
+            </h3>
+            <div>
+                <ol>
+                    <li>Abusing domain reputation (<i>phishing, rickrolling...</i>)
+                    </li>
+                    <li>Referer stripping / riding
+                    </li>
+                    <li>Bypassing link whitelists
+                    </li>
+                    <li>Server-side Request Forgery
+                    </li>
+                    <li>XSS
+                    </li>
+                    <li>Information Leakage
+                    </li>
+                    <li>Character injection
+                    </li>
+                </ol>
+            </div>
+            </section>
+
+            <section>
+            <h2>1- Abusing domain reputation
+            </h2>
+            <br>
+            <h5> Do you screen your links before clicking on them?
+            </h5>
+            <img src="img/status_bar.png">
+            <ul>
+                <li>The status bar helps but we are too used to URL shorteners
+                </li>
+                <li>t.co, bit.ly, fb.me... <span class="hl">we basically gave up</span> on knowing beforehand where we are being taken to
+                </li>
+            </ul>
+            </section>
+
+            <section>
+                <h5>When there is no shortener, we no longer expect a redir
+                </h5>
+                <img src="img/paypal_trim.png">
+                <h5>Seeing <font face="courier new">https://www.paypal.com...</font> looks actually safe
+                </h5>
+                <br>
+                <div data-fragment-index="1" class="fragment">
+                <h5>... when in fact we don't know ...
+                </h5>
+                <p style="text-align: left">
+                <code>
+                    https://www.paypal.com/de/cgi-bin/?<br>id=xjkfdsKJHSUOSKFjauhhsdhkfd8793004<br>jkhfdsJHfds98fdskjJxxjkFjksdf&cmd=_ba<br>ck-to-portal&<span class="hl">portal_url=https://evil.com</span>
+                </code>
+                </p>
+            </div>
+            </section>
+
+            <section>
+                <h3>Also status bar is not always available!
+                </h3>
+                [imagen]
+            </ul>
+            </section>
+
+            <section>
+            <h3>Things get worse on social sites
+            </h3>
+            <ul>
+                <li>Small previews of external links are attempted
+                </li>
+                <li>Link is prefetched and decorated with title, favicon, thumb, text excerpt...
+                </li>
+                <li>Link is wrapped:
+                <ul>
+                    <li>Twitter &nbsp;<font face="courier new">t.co</font>
+                    </li>
+                    <li>Facebook &nbsp;<font face="courier new">l.php</font>
+                    </li>
+                    <li>LinkedIn &nbsp;<font face="courier new">/share?viewlink</font>
+                    </li>
+                </ul>
+                </li>
+                <li>Classic <u><acronym title="Time of check-Time of use">TOCTOU</acronym></u> problem <i>VS </i>Server-side Request Forgery 
+                </li>
+            </ul>
+            <br>
+            <br>
+            <div style="text-align: right">
+            (more on this later...)
+        </div>
+            </section>
+
+        <section>
+        <h3><a href="">@randomdross</a>
+            <h3>
+                <h4>actually wrote a <a href="">great paper</a> on this topic
+                </h4>
+            </section>
+
+        <section>
+        <h5>Furthermore, even without open redirs...
+            <h5>
+                <h3>Javascript can change the URL of newly opened windows <span class="hl">at any time</span>
+            <h3>
+        </section>
+
+        <section>
+        <ol>
+            <li>Link on <font face="courier new">makensi.es</font> points to <font face="courier new">apple.com</font> and opens on new window
+            </li>
+            <li data-fragment-index="0" class="fragment">User clicks, new window opens, <font face="courier new">apple.com</font> loads
+            </li>
+            <li data-fragment-index="1" class="fragment">At any time, even after user navigates further down <font face="courier new">apple.com</font>, <font face="courier new">makensi.es</font> window may change the URL from <font face="courier new">apple.com</font> to <font face="courier new">evil.com</font>
+            </li>
+        </ol>
+        </section>
+
+        <section>
+        <h3><a href="">@lcamtuf</a>
+            <h3>
+                <h4>did a <a href="">nifty demo</a> of this
+                </h4>
+            </section>
+
+        <section>
+        <div style="text-align: justify;">
+            <h3>So yeah, <span class="hl"><b>you cannot trust links</b></span><br> whatsoever, not for a single authority
+        </h3>
+        </div>
+            </section>
+
+        <section>
+        <h3>How to be safe:
+        </h3>
+        <ol>
+            <li><span class="hl"><b>ALWAYS</b></span> check your browser address bar
+            </li>
+            <li data-fragment-index="1" class="fragment">That's about it
+            </li>
+        </ol>
+        </section>
+
+
+        <section>
+        <div style="text-align: justify;">
+        <blockquote>
+            The problem is that the current contents of the address bar are about the only security indicator you have in the browser.[...] If you make security decisions based on onmouseover tooltips, link text or anything along these lines, and do not examine the address bar of the site you are ultimately interacting with, there is very little any particular web application can do to save you" --<a href=""> Michal Zalewski</a>
+        </blockquote>
+    </div>
+        </section>
+
+        <section>
+        <h2>2- Referer stripping / riding
+        </h2>
+        <ul>
+            <li>School taught us <font face="courier new">Referer</font> is not reliable
+            </li>
+            <li>Still, many people rely on referer checks against hotlinking and for <acronym title="Access Control">AC</acronym>
+            </li>
+            <li>Also referer checking = lazy man's anti-<acronym title="Cross-site Request Forgery">CSRF</acronym>
+            </li>
+            <li>Works better than most of us would dare to admit
+            </li>
+        </ul>
+        </section>
+
+        <section>
+        <h3>But...
+        </h3>
+        <ul>
+            <li>Referer checking is whitelist based
+            </li>
+            <li>IE <=8 sometimes decides not to send any referer at all <br>
+            <br>
+            <font face="courier new"><code>&lt;input type="button" value="edit" onclick="location.href='editprofile.php';"&gt;</code></font>
+            <br>
+            <br>
+            </li>
+            <li>Because of this, <span class="hl">empty referer must be whitelisted</span> too so things don't break
+            </li>
+        </ul>
+        </section>
+
+        <section>
+        <h3>anti-CSRF referer check bypass
+        </h3>
+        <div style="text-align: left;">
+        <h4>
+
+            <span class="hl">a)</span> If empty referer is whitelisted
+        </h4>
+            <ul>
+            <li>Check is useless
+            </li>
+            <li>HTTPS to HTTP will strip referer
+            </li>
+            <li> Refresh based redirect does too
+            </li>
+            <li>Request originated from <font face="courier new">about:blank</font> context
+            <br>
+            <code>&lt;iframe src='data:text/html,&lt;form method=post action="PATH"&gt;&lt;/form&gt;&lt;script&gt;document.forms[0].submit()&lt;/script&gt;'&gt;&lt;/iframe&gt
+            </code>
+            <br>
+            <br>
+            will also not send <font face="courier new">Referer</font>
+            </li>
+        </section>
+
+
+        <section>
+        <h3>Referer riding
+        </h3>
+        <div style="text-align: left;">
+        <h4>
+
+            <span class="hl">b)</span> If empty referer is blacklisted
+        </h4>
+            <ul>
+            <li>Javascript based Open Redirects under whitelisted domain will help
+            <br>
+            <br>
+            <code>
+            &lt;script language="javascript" type="text/javascript"&gt;
+            window.location.href="<span class="hl">&lt;GET based CSRF&gt;</span>";
+            &lt;/script&gt;
+        </code>
+            </li>
+        </ul>
+        </section>
+
+        <section>
+        <h2>3- Bypassing link whitelists
+        </h2>
+        <ul>
+            <li>Some functionalities accept URLs as input
+            <ul>
+                <li>Return URLs for SSO, authorization frameworks...
+                </li>
+                <li>URL validators
+                </li>
+                <li>Forum message tags, Social site cards on profiles...
+                </li>
+            </ul>
+            </li>
+            <li>These check that <font face="courier new">scheme://authority</font> belongs to a whitelist
+            </li>
+            <li>They rarely check path, query or fragment
+            <font face="courier new">https://accounts.google.com/ServiceLogin?<br>service=mail&passive=true&rm=false<br>&continue=<span class="hl">https://mail.google.com</span>/mail/</font>
+            </li>
+        </ul>
+        </section>
+
+        <section>
+            <h3>Sometimes URLs are signed
+            </h3>
+        <div style="text-align: left">
+            <font face="courier new">http://www.linkedin.com/redirect?url=http%3A<br>%2F%2Fmakensi%2Ees&<span class="hl">urlhash=d9Lj</span>&_t=NUS_UNIU_SHARE-<br>lnk&trk=NUS_UNIU_SHARE-lnk
+            <br>
+            <br>
+            http://t.co/<span class="hl">gf5vIjkt9</span>
+            <br>
+            <br>
+            https://www.facebook.com/l.php?<br>u=http%3A%2F%2Fmakensi%2Ees&<span class="hl">h=OAQeRjssD</span>
+        </font>
+
+        </div>
+        </section>
+
+        <section>
+            <h3>URL signing
+            </h3>
+
+            <ul>
+                <li>Redirection script only checks signature
+                </li>
+                <li>Prevents URL tampering after validation was done
+                </li>
+                <li>Signatures can be blacklisted when malware/worms appear
+                </li>
+                <li>Also whitelist-based redirections
+                </li>
+            </ul>
+
+        </section>
+
+        <section>
+            <h3>Whitelist-based redirections
+            </h3>
+
+            <p style="text-align: left">
+            <font face="courier new">http://<span class="hl">domainA</span>/?redir_url=http://<span class="hl">domainB</span>/&signature=XXX</font>
+            </p>
+            <ul>
+                <li>Only <font face="courier new">domainB</font> URLs are accepted 
+                </li>
+                <li>Path, query or fragment rarely checked
+                </li>
+                <li>Wrong signature = no redirection / trust
+                </li>
+            </ul>
+        </section>
+
+        <section>
+        <h3>Whitelist-based redirections <span class="hl">bypass</span>
+            </h3>
+            <ul>
+                <li>Just find any Open Redir on <font face="courier new">domainB</font> (or sometimes <font face="courier new">xxxx.domainB</font>)
+                <br>
+                <font face="courier new">http://domainA/?redirection_url=http%3a%2f%2fdomainB%2fredir%2ephp%3fu%3D<br>http%253A%252F%252F<span class="hl">makensi%252Ees</span>%2f&signature=XXX</font>
+            <br>
+            <br>
+                </li>
+                <li>For 30x redirects you are effectively signing any URL
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4>What if URL path is also checked against whitelist?
+            </h4>
+            <p>
+            Search for <span class="hl">hashbang</span> features:
+            <br>
+            <code>
+                http://domain.com/#!/path/redir<br>
+            </code>
+            <br>
+            redirects to...<br>
+            <code>
+                http://domain.com/path/redir<br>
+            </code>
+            </p>
+            <br>
+            <p>
+            <a href="http://www.breaksec.com/?p=5734">@Nirgoldshlager</a> pwned Facebook doing this
+            </p>
+        </section>
+
+        <section>
+            <h4>How about fixing this by following redirects during URL validation?
+            </h4>
+            Imagen boom
+            <h4><span class="hl">Server-side Request Forgery</span> happens :(
+            </h4>
+        </section>
+
+
+        <section>
+            <h2>4- Server-side Request Forgery
+            </h2>
+            <p style="text-align: left">
+                If validator <span class="hl">follows redirects</span> you could be in trouble:
+                <br>
+                <br>
+            <font face="courier new">
+                HTTP/1.1 301 Moved Permanently<br>
+                Date: Mon, 11 Feb 2013 22:42:17 GMT<br>
+                Location: http://target.com/viewuser.php?name='; DROP TABLE users; -- </font>
+        </p>
+        <p style="text-align: left" data-fragment-index="0" class="fragment">
+            <br>
+            Also <span class="hl">if responses differ</span> for valid/invalid URLs you may be leaking intranet info:
+            <br>
+            <div data-fragment-index="1" class="fragment">
+            <ul>
+            <font face="courier new">
+                <li>http://app/?url=http://127.0.0.1:22
+                </li>
+                <li>http://app/?url=http://10.x.x.x:80
+                </li>
+        </font>
+            </ul>
+    </div>
+        </p>
+        </section>
+
+            <section>
+                <h5>Surprisingly SSRF is very common and rarely monitored
+                </h5>
+                <h5>Consider it the <font face="courier new"><span class="hl"><b>nmap -sI</b></span></font> of WWW
+                </h5>
+            </section>
+
+        <section>
+        <h3>Preventing SSRF while following redirects
+        </h3>
+        <ol>
+            <li>Reject off-site redirects to non-whitelisted domains
+            </li>
+            <li data-fragment-index="0" class="fragment">Permit only <font face="courier new">/https?:\/\//</font> schemes
+            </li>
+            <li data-fragment-index="1" class="fragment">Reject non-standard ports in authority part of URLs
+            </li>
+        </ol>
+
+        <br>
+        <br>
+        <p style="text-align: right" data-fragment-index="2" class="fragment">
+        ...and always <span class="hl">monitor</span> all server-side requests
+        </p>
+        
+        
+        </section>
+
+        <section>
+            <h2>5- XSS
+            </h2>
+            <ul>
+            <li>Yeah, Open Redirects can lead to XSS through <font face="courier new"><b>javascript:</b></font> and <font face="courier new"><b>data:</b></font> URLs.
+            </li>
+            <li>Only for redirects made through <font face="courier new">Refresh</font> header or meta tag
+            </li>
+            <li>Not all browsers are exposed <a href="">[1]</a>
+            </li>
+        </section>
+
+        <section>
+            <h4>How common is this?
+            </h4>
+            <h4 data-fragment-index="0" class="fragment">Not much, but you sometimes get <span class="hl">lucky</span>
+            </h4>
+            <img data-fragment-index="1" class="fragment" src="img/meta_xss.png" width="600px">
+        </section>
+
+        <section>
+        <h2>6- Information leakage
+        </h2>
+        <ul>
+            <li>It's 2013 but people keep putting  sensitive info on URLs
+            <ul>
+                <li>Email addresses
+                </li>
+                <li>Per-account static anti-CSRF tokens
+                </li>
+                <li>Authentication tokens &amp; nonces
+                </li>
+            </ul>
+            </li>
+            <li><span class="hl">Capability-bearing</span> URLs and Open Redirects do not get along well
+            </li>
+        </ul>
+        </section>
+
+        <section>
+        <h3>Leaking sensitive URLs: quick <span class="hl">reminders</span>
+        </h3>
+        <ul>
+            <li>URL fragment is not included on referers
+            </li>
+            <li>But URL fragment is forwarded cross-domain on 30x redirects
+            </li>
+            <li>HTTPS only strips referer when downgrading to HTTP
+            </li>
+            <li>For HTTPS->HTTPS all browsers do send referer cross-domain (except Opera)
+            </li>
+        </ul>
+        </p>
+        <p style="text-align: center">
+        <h4>Encryption != Trustworthiness</h4>
+        </p>
+        </section>
+
+
+        <section>
+        <h3>Examples of real world scenarios
+        </h3>
+        <p style="text-align: left">
+        <b><span class="hl">a)</span> SSO deeplinking:</b> user sessions tend to expire so a redirection param is carried along during re-authentication process
+        <ol>
+            <li><font face="courier new">https://authserver/SSO_login?return=<span class="hl">PATH</span></font>
+            </li>
+            <li>Sensitive URL is created
+            <ul>
+                <li>
+            <font face="courier new">Location: https://destapp/login?auth=<span class="hl">SECRET</span>&return=<span class="hl">PATH</span></font>
+            </li>
+            <li>
+            <font face="courier new">Location: https://destapp/<span class="hl">PATH</span>?auth=<span class="hl">SECRET</span></font>
+            </li>
+            </ul>
+        </ol>
+        </p>
+        <ul>
+            <li>Depending on the particular implementation, <font face="courier new">SECRET</font> may be leaked
+            </li>
+            <li>The type of redir matters here. Initiation context too.
+            </li>
+            <li>Or maybe we can just put external <font face="courier new">&lt;img&gt;</font> in <font face="courier new">PATH</font>
+            </li>
+        </ul>
+        </section>
+
+        <section>
+        <p style="text-align: left">
+        <b><span class="hl">b)</span> OAuth2:</b> Authorization framework usually badly implemented. <a href="">@homakov</a> and <a href="">@isciurus</a> pwned it several times <b>chaining Open Redirs</b> with other flaws. Open redirections lie at the heart of every PoC.
+        <ul>
+            <li>Non-static redirection URLs
+            </li>
+            <li>Sensitive fragments forwarded to arbitrary domains
+            </li>
+            <li>Hashbang features
+            </li>
+        </ul>
+        </p>
+        </section>
+
+        <section>
+        <h2>7- Character injection
+        </h2>
+        <ul>
+            <li>First thing you should check on 30x Open Redirs
+            </li>
+            <li>Surprisingly still appears during audits
+            </li>
+            <li>You need to go beyond simple <font face="courier new">%0D%0A</font> tests
+            <ul>
+                <li><font face="courier new">%08</font> (backspace)  
+                </li>
+                <li><font face="courier new">%3F</font> (?)
+                </li>
+                <li><font face="courier new">%23</font> (#)
+                </li>
+                <li><font face="courier new">;</font>
+                </li>
+            </ul>
+            </li>
+        </ul>
+        <br>
+        These may cause unexpected behaviours or even <span class="hl"><b>Header Injection</b></span>
+
+        </section>
+
+        <section>
+        <h4>To illustrate: Google left unattended some internal redirection server
+        </h4>
+        <p style="text-align: left">
+        <font face="courier new">
+            GET http://goto.ext.google.com/<span class="hl">%08</span>%0a%0d%0a%0a%3cscript%3eprompt(document.domain)%3c%2fscript%3e
+            <br>
+            <br>
+
+            HTTP/1.1 301 Moved Permanently
+            <br>
+            Date: Mon, 11 Feb 2013 22:42:17 GMT
+            <br>
+            Content-Type: text/html
+            <br>
+            Server: Google Frontend
+            <br>
+            Content-Length: 41
+            <br>
+            <br>
+
+            &lt;script&gt;prompt(document.domain)&lt;/script&gt;
+        </font>
+        <br>
+            <br>
+            <font face="courier new"><span class="hl">%08</span></font> deletes <font face="courier new">Location</font> header so body injection kicks in
+        </p>
+        </section>
+
+        <section>
+        <h3>Things to take home
+        </h3>
+        <h2><span class="hl">When to care</span> about Open Redirections?
+        </h2>
+        </section>
+
+        <section>
+        <h3>Application <span class="hl">developer/owner</span>
+        </h3>
+        <p>
+        Care if...
+        <ol style="list-style-type: lower-alpha">
+            <li data-fragment-index="0" class="fragment">You are putting sensitive info on URLs (even on fragment)
+            </li>
+            <li data-fragment-index="1" class="fragment">You are checking referers against a whitelist 
+            </li>
+            <li data-fragment-index="2" class="fragment">You are checking schemes+authorities against a whitelist
+            </li>
+            <li data-fragment-index="3" class="fragment">You fully resolve redirections server-side from input URLs
+            </li>
+        </ol>
+        </p>
+        <br>
+        <p style="text-align: right" data-fragment-index="4" class="fragment">
+        (Maybe you shouldn't be doing most of these anyway)
+        </p>
+        </section>
+
+        <section>
+        <h3><span class="hl">End user</span>
+        </h3>
+        <p>
+        Don't worry, just carry on clicking on links, BUT...
+        <ol style="list-style-type: lower-alpha">
+            <li data-fragment-index="0" class="fragment">Don't trust the status bar
+            </li>
+            <li data-fragment-index="1" class="fragment">Assume you can't know where you are being taken to
+            </li>
+            <li data-fragment-index="2" class="fragment">Click bookmarked links rather than email links
+            </li>
+            <li data-fragment-index="3" class="fragment">Do not browse in full screen mode
+            </li>
+            <li data-fragment-index="4" class="fragment">Always, always, <b><span class="hl">ALWAYS</span></b> check the address bar
+            </li>
+        </ol>
+        </p>
+        </section>
+
+        <section>
+        [keep calm image]
+        </section>
+
+        <section>
+        <p style="text-align: left">
+        <h4>Me<br> <a href="">@olemoudi</a>
+            <br>
+            <font face="courier new"><a href="http://makensi.es">http://makensi.es</a></font>
+        </h4>
+        </p>
+        <h4>References
+        </h4>
+        <ul>
+            <li><a href="http://lcamtuf.coredump.cx/tangled/">The Tangled Web</a> - <i>Michal Zalewski</i> <- Do buy this book
+            </li>
+            <li><a href="http://homakov.blogspot.de/2013/03/oauth1-oauth2-oauth.html">OAuth1, OAuth2, OAuth...?</a> - <i>Egor Homakov</i> 
+            </li>
+            <li><a href="http://www.breaksec.com/?p=6039">The Unfix Bug in Facebook OAuth</a> - <i>Nir Goldshlager</i>
+            </li>
+            <li><a href="http://blogs.msdn.com/b/dross/archive/2012/04/26/hyperlink-spoofing-and-the-modern-web.aspx">Hyperlink Spoofing and the Modern Web</a> - <i>David Ross</i>
+            </li>
+
+            <li><a href="http://sebastians-pamphlets.com/the-anatomy-of-http-redirects-301-302-307/">The anatomy of a server sided redirect: 301, 302 and 307 illuminated SEO wise</a> - <i>SebastianX</i>
+            </li>
+            <li><a href="http://code.google.com/p/browsersec/wiki/Main">Browser Security Handbook</a> - <i>Michal Zalewski</i>
+            </li>
+            <li><a href=""> </a>
+            </li>
+            <li><a href=""> </a>
+            </li>
+            <li><a href=""> </a>
+            </li>
+        </ul>
+        </section>
+
+    </div>
+
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+<script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+    });
+
+</script>
+
+    </body>
+</html>
