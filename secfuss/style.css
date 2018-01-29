@@ -1,0 +1,21 @@
+body {
+  background: #111111;
+  }
+
+
+.subtitle {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    letter-spacing: +0.04em;
+    font-weight: 20;
+    font-size: 20px;
+    color: #eeeeee;
+}
+.footer {
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    letter-spacing: +0.04em;
+    font-weight: 20;
+    font-size: 15px;
+    color: #eeeeee;
+}

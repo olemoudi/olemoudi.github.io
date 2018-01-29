@@ -1,0 +1,32 @@
+#AuthUserFile /home/content/o/l/e/olemoudi/html/seeshy/.htpasswd
+#AuthName "Acceso Restringido"
+#AuthType Basic
+#require valid-user
+
+AddDefaultCharset utf-8
+#Fix Rewrite
+Options -Multiviews
+
+Options +FollowSymlinks
+RewriteEngine on
+
+# www.xxx to xxx
+rewritecond %{http_host} ^www.seeshy.com [nc]
+rewriterule ^(.*)$ http://seeshy.com/$1 [r=301,nc,L]
+
+
+# /brau.php to /brau
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+# search alias
+RewriteRule ^buscar.php/([^/\.]+)$ buscar.php?nick=$1 [L]
+RewriteRule ^search.php/([^/\.]+)$ search.php?nick=$1 [L]
+
+
+
+

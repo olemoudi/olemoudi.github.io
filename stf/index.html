@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Content-Language" content="english" />
+<meta name="keywords" content="skiptracing information gathering enumeration people search" />
+<meta name="language" content="en" />
+<meta name="description" content="A directory of information gathering tools and websites." lang="en">
+<title>Skip Tracing Framework</title>
+
+<link rel="stylesheet" type="text/css" href="css/stf.css" />
+
+<!-- Include JQuery Core-->
+<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-jvert-tabs-1.1.4.js"></script>
+
+<script type="text/javascript" src="js/stf.js?200720122"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+        $("#main").jVertTabs();	
+
+
+    $("#inputs").jVertTabs();
+    for (var i in inputs){
+        tag = "#"+inputs[i].code;
+        $(tag).jVertTabs();		
+	}	
+    $('#lastupdated').html('<i>Last updated '+lastupdated+'</i>');
+
+    
+});
+</script>
+<div class="logo">
+<h1><span></span><i>Skip Tracing</i> Framework</h1>
+<h2>A directory of information gathering tools and websites</h2>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11822210-1']);
+  _gaq.push(['_setDomainName', 'makensi.es']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+
+<div id="main">
+	<div>
+		<ul>
+			<li><a href="#start">Start</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#links">Links</a></li>
+		</ul>
+	</div>
+	<div>
+		<div id="#start" style="height: 950px">
+		<h2>I have a...</h2>
+			<div id="inputs">
+			</div>
+			
+		</div>
+		<div id="#about">
+							<div>
+		<center><img src="sonar_mini.gif"></center>
+		</div>
+			<p>The <i>Skip Tracing</i> Framework is a directory of information gathering online tools, websites and programs aimed towards situations where one must gather as much information as possible about some individual or company. The main purpose is to offer a checklist anyone can follow to perform a thorough investigation based only on small pieces of input.</p>
+			<p>This framework is inspired by the great <a href="http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html" target="_blank">Penetration Testing Framework&nbsp;<img src="css/img/icon_popup.gif"></a>, including additional sources of information in addition to present the available options in a more convenient manner. Rating is used to display the general usefulness of the obtained results and how well the tool usually behaves.</p>
+			<p>It is important to note that the information sources listed here involve for the most part passive techniques which hardly will get noticed by our target. There are other tools and techniques which can give you even more info but they are not considered as passive or stealthy. Be sure to check <a href="http://www.backtrack-linux.org/" target="_blank">Backtrack Suite&nbsp;<img src="css/img/icon_popup.gif"></a> for additional programs and tools to continue the skip tracing process.</p>
+			<p>If you feel some information source should be included or if you have any suggestions about the framework, hit me on Twitter <a href="https://twitter.com/olemoudi" target="_blank">@olemoudi&nbsp;<img src="css/img/icon_popup.gif"></a>.
+
+	
+	</div>
+		<div id="#links">
+			<p>Some useful links you should maybe check out:</p>
+			<ul>
+				<li><a href="http://blog.makensi.es" target="_blank">(almost) no tech hacking blog&nbsp;<img src="css/img/icon_popup.gif"></a></li>
+				<li><a href="http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html" target="_blank">Penetration Testing Framework&nbsp;<img src="css/img/icon_popup.gif"></a></li>
+				<li><a href="http://dradisframework.org/" target="_blank">Dradis Effective Information Sharing&nbsp;<img src="css/img/icon_popup.gif"></a></li>
+				<li><a href="http://www.paterva.com/" target="_blank">Maltego Open Source Intelligence&nbsp;<img src="css/img/icon_popup.gif"></a></li>
+				<li><a href="http://www.slideshare.net/rootedcon/blueliv-information-gathering-with-optos-rooted-con-2011" target="_blank">Information Tracking with OPTOS (spanish)&nbsp;<img src="css/img/icon_popup.gif"></a></li>	
+				<li><a href="http://www.backtrack-linux.org/" target="_blank">Backtrack Suite&nbsp;<img src="css/img/icon_popup.gif"></a></li>																			
+			</ul>
+		</div>	
+	</div>
+</div>
+<div class="footnote" id="lastupdated">
+</div>
+
+<script type="text/javascript">
+	tabs = "";
+	contents = "";	
+	for (var i in inputs) {
+		tabs += '<li><a href="#'+inputs[i].code+'">'+inputs[i].name+'</a></li>';
+		content = '<div id="#'+inputs[i].code+'"><h3>'+inputs[i].desc+'</h3><div id="'+inputs[i].code+'">';
+
+		content += '</div></div>';
+		contents +=content;
+		content = "";
+	}
+	p1 = "<div><ul>"+tabs+"</ul></div>";
+	p2 = "<div>"+contents+"</div>";
+	$("#inputs").html(p1+p2);
+
+for (var i in inputs) {
+temp = [];
+		for (var t in transforms) {
+			
+			if (($.inArray("any", transforms[t].inputs) != -1 && inputs[i].code != "zone") || $.inArray(inputs[i].code, transforms[t].inputs) != -1) {
+
+				temp.push(transforms[t]);
+			}
+		}
+		sortedtemp = temp.sort(function(a, b){return b.rating-a.rating});
+
+		transform = "";
+		transform_contents = "";
+		for (n in sortedtemp) {
+
+
+			transform_content = '<div id="#'+inputs[i].code+sortedtemp[n].code+'"><h3>'+sortedtemp[n].desc+'</h3><ul>';
+
+			sortedtemp2 = sortedtemp[n].urls.sort(function(a,b) {return b.rating-a.rating});
+			r = 0;
+			c = 0;
+			for (u in sortedtemp2) {
+				transform_content +='<li class="tool"><a href="'+sortedtemp2[u].url+'" target="_blank">'+sortedtemp2[u].tag+'&nbsp;<img src="css/img/icon_popup.gif" alt=""></a><div class="classification"><div class="cover"></div><div class="progress" style="width: '+sortedtemp2[u].rating*10+'%;"></div></div>'+'</li>';
+				r += sortedtemp2[u].rating;
+				c += 1;
+			}
+			transform += '<li><a href="#'+inputs[i].code+sortedtemp[n].code+'">'+sortedtemp[n].name+'<div class="classification"><div class="cover"></div><div class="progress" style="width: '+(r/c)*10+'%;"></div></div>'+'</a></li>';
+						
+			transform_content +='</ul></div>'			
+			transform_contents += transform_content;
+			transform_content = "";
+		}
+		t1 = "<div><ul>"+transform+"</ul></div>";
+		t2 = "<div>"+transform_contents+"</div>";
+		$("#"+inputs[i].code).html(t1+t2);
+
+}
+
+
+</script>
+
+</body>
+</html>
