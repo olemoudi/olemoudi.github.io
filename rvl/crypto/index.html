@@ -23,6 +23,44 @@
 		</script>
 	</head>
 	<body>
+        <!--
+Qué pretende esta charla
+Para quién es esta charla
+Disclaimer: no soy experto
+Conocimientos previos: simetrica, asimetrica, hash, key exchange
+No hace falta ser un experto para “oler” la mala criptografía
+Reglas Universales de la Criptografía
+Principio de Kerckhoff
+Semantic Security
+Cryptographic dooms principle (signal)
+Ausencia de Key management
+Nunca escribas tu propia criptografía
+Nunca escribas criptografía
+Caza aparcado
+Secret prefix/suffix construction for MACs
+Encrypt then MAC / Authenticated encryption
+Padding Oracle
+https://gist.github.com/tqbf/be58d2d39690c3b366ad 
+Mis-use of hashing
+Poor password hashing
+Not knowing that HMAC is a thing
+Not validating SSL/TLS certificates
+Not using separate data encryption keys (DEKs) when you should
+Not using built-in keystore managers in your stack of choice
+Private key material sprayed carelessly throughout the system (no trust boundaries)
+Supplying insufficient entropy or poor-quality randomness to crypto functions
+https://storify.com/jcuid/thomas-h-ptacek-don-t-use-json-web-tokens 
+asymetric never used to encrypt data
+nonce reuse
+key reuse for encrypt and mac
+
+anti-patterns
+Cosas que están mal
+RSA PKCS #1 v1.5 encryption 
+SHA-1 o inferiores para firmas
+Cifrado no autenticado
+
+        -->
 		<div class="reveal">
 			<div class="slides">
 				<section>
@@ -51,8 +89,72 @@
                             </li>
                         </ol>
                     </div>
+                </section>
+
+                <section>
+                    <h3>First and foremost...</h3>
+                    <div class="fragment" data-fragment-index="0">
+                    <h3> &larr;  not an Expert</h3>
+                    </div>
+                    <!-- foto mia con flecha not an expert -->
+                </section>
+
+                <section>
+                    <h3>but...</h3>
+                    <div class="fragment" data-fragment-index="0">
+                    <h4>You don't have to be an expert to smell bad Crypto</h4>
+                        <img src="img/smellsbad.gif">
+                        <p>(Bureaucrypto Principle)</p>
+                    </div>
+                    <!-- foto mia con flecha not an expert -->
+                </section>
+                
+                <section>
+                    <h2>Quick Introduction to Cryptoanalysis</h2>
+                </section>
+
+<style>
+                blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote div {
+  display: inline;
+}
+</style>
+                <section>
+                    <h3>Kerckhoff's Principle</h3>
+                    <blockquote>
+                        <div>
+A cryptosystem should be secure even if everything about the system, except the key, is public knowledge                    
+                        </div>
+                    </blockquote>
+                </section>
+
+                <section>
+
+                    <blockquote>
+                        <div>
+                        We do this unusual construction so the attacker won't know how to encrypt a valid token
+                        </div>
+                    </blockquote>
+                    <blockquote>
+                        We do this unusual construction so the attacker won't know how to encrypt a valid token
+                    </blockquote>
 
                 </section>
+
 			</div>
 		</div>
 
