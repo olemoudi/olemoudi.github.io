@@ -134,11 +134,48 @@ blockquote div {
 }
 </style>
                 <section>
+                    <h3>Lesson #1</h3>
+                    <blockquote>
+                        <div>Never write your own crypto</div>
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>To clarify:</h3>
+                    <blockquote>
+                        <div>
+                            If You're Typing the Letters A-E-S Into Your Code You’re Doing It Wrong
+                        </div>
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>Schneier's Law</h3>
+                    <blockquote>
+                        <div>
+                            Anyone, from the most clueless amateur to the best cryptographer, can create an algorithm that he himself can't break.
+                        </div>
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>...</h3>
+                    <blockquote>
+                        <div>
+                            Cryptography is perilous because you get no feedback when you mess up
+                        </div>
+                    </blockquote>
+                </section>
+
+                <section>
                     <h3>Kerckhoff's Principle</h3>
                     <blockquote>
                         <div>
 A cryptosystem should be secure even if everything about the system, except the key, is public knowledge                    
                         </div>
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>Shannon's simpler version</h3>
+                    <blockquote>
+                        <div>The Enemy knows the system</div>
                     </blockquote>
                 </section>
 
@@ -154,6 +191,56 @@ A cryptosystem should be secure even if everything about the system, except the 
                     </blockquote>
 
                 </section>
+
+				<section>
+
+                    <h2>Outline</h2>
+                    <div>
+                        <ol>
+                            <li>
+                                Quick Intro &#x2714;
+                            </li>
+                            <li>
+                                Universal Rules of Good Crypto &#x2714;
+                            </li>
+                            <li>
+                                Common Anti-Patterns to remember
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section>
+                    <h4> remember that thing about not typing A-E-S in your code? </h4>
+                    let's see some examples
+                </section>
+
+                <section>
+                    <h3>Symmetric Signatures</h3>
+                    <p>
+                    Secret Prefix
+                    </p>
+                    <pre>
+                    <code class="python">
+                    sha = sha(secret +  data)
+                    </code>
+                    </pre>
+
+                    <p>
+                    Secret Suffix
+                    </p>
+                    <pre>
+                    <code class="python">
+                    sha = sha(data + secret)
+                    </code>
+                    </pre>
+                </section>
+
+
+                <section>
+                    <h3>Encryption != Authentication</h3>
+                </section>
+
 
 			</div>
 		</div>
