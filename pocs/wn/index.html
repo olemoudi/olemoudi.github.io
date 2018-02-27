@@ -2,20 +2,22 @@
 <html>
 <p> click this link</p>
 
-<a href="#" onclick="openwindow()">link</a>
+<input type=submit onclick="openwindow()" value="Do it">
 
 <script>
 var h;
 
-setTimeout(navigate, 7500);
 
 function openwindow() {
-h =window.open('https://fiddle.jshell.net/ordjo3cv/1/show/light/', 'newwindow');
+h =window.open('randomname.html', 'newwindow');
+setTimeout(navigate, 3500);
 }
 
 function navigate() {
+    console.log("navigate called");
+    console.log(h);
 
-h.location = "https://google.com";
+h.location.replace = "http://google.com";
 
 }
 </script
