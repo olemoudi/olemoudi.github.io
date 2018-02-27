@@ -1,23 +1,20 @@
 
 <html>
-<p> click this link</p>
+<p>click</p>
 
 <input type=submit onclick="openwindow()" value="Do it">
 
 <script>
 var h;
 
-
 function openwindow() {
-h =window.open('randomname.html', 'newwindow');
-setTimeout(navigate, 3500);
+    h =window.open('randomname.html', 'newwindow');
+    setTimeout(navigate, 3500);
 }
 
 function navigate() {
     console.log("navigate called");
-    console.log(h);
-
-h.location.replace = "http://google.com";
+    h.location.replace("http://google.com");
 
 }
 </script

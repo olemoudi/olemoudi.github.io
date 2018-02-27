@@ -1,13 +1,13 @@
 <html>
     <body onload="randomize()">
-    <p> this page has a random window.name</p>
+    <p> this page has a random window.name after onload</p>
     </body>
 
 
     <script>
     function randomize() {
-    //window.name = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
-    console.log("window.name has been randomized");
+        window.name = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+        console.log("window.name has been randomized to: "+window.name);
     }
     </script>
 </html>
