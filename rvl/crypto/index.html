@@ -21,6 +21,30 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+        <style>
+    
+        section {
+            text-align: left;
+        }
+                        blockquote {
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        }
+        blockquote:before {
+        color: #ccc;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+        }
+        blockquote div {
+        display: inline;
+        }
+        </style>
 	</head>
 	<body>
         <!--
@@ -79,13 +103,19 @@ Cifrado no autenticado
                     <div>
                         <ol>
                             <li>
-                                Quick Intro
+                                Disclaimer
+                            </li>
+                            <li>
+                                Intro to Applied Crypto
                             </li>
                             <li data-fragment-index="0" class="fragment">
-                                Universal Rules of Good Crypto
+                                Universal Rules of Good Cryptography
                             </li>
                             <li data-fragment-index="1" class="fragment">
                                 Common Anti-Patterns to remember
+                            </li>
+                            <li>
+                                Take-home notes
                             </li>
                         </ol>
                     </div>
@@ -98,41 +128,117 @@ Cifrado no autenticado
                     </div>
                     <!-- foto mia con flecha not an expert -->
                 </section>
+                <section>
+                    <h4>This talk was possible thanks to....</h4>
+                    <ul>
+                        <li>
+                            esanfelix
+                        </li>
+                        <li>
+                            pwntester
+                        </li>
+                        <li>
+                            jselvi
+                        </li>
+                        <li>
+                            adrianbn
+                        </li>
+                        <li>
+                            kachakil
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>knowledge from</h4>
+                    <ul>
+                        <li>
+                            ptacek
+                        </li>
+                        <li>
+                            jp aumasson
+                        </li>
+                        <li>
+                            schneier
+                        </li>
+                    </ul>
+                </section>
 
                 <section>
-                    <h3>but...</h3>
+                    <h3>If you only want to remember 1 thing about this talk</h3>
                     <div class="fragment" data-fragment-index="0">
                     <h4>You don't have to be an expert to smell bad Crypto</h4>
                         <img src="img/smellsbad.gif">
                         <p>(Bureaucrypto Principle)</p>
                     </div>
-                    <!-- foto mia con flecha not an expert -->
                 </section>
                 
                 <section>
-                    <h2>Quick Introduction to Cryptoanalysis</h2>
+                    <h2>Quick Introduction to Applied Cryptography</h2>
+                </section>
+                <section>
+                    dibujo de input - math - output
+                    gif de magic
+                </section>
+                <section>
+                    <h2>Unbreakable <span class="fragment" style="font-size: 30%" data-fragment-index="0"><sup>(1)</sup></span></h2>
+                    texto de explicacion de tamaño enano
+                </section>
+                <section>
+                    <h3>Real World Cryptography uses</h3>
+                    <ul>
+                        <li>
+                            Encrypting data (confidentiality and sometimes integrity)
+                            <ul>
+                                <li>
+                                    Confidentiality
+                                </li>
+                                <li>
+                                    Integrity?
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Signing Data (integrity)
+                        </li>
+                        <li>
+                            Key Exchange  and others (not for this talk)
+                        </li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h3>Encrypting data</h3>
+                    dibujo de input - math - output
+                    <ul>
+                        <li>
+                            Nobody can read output
+                        </li>
+                        <li>Nobody can extract metadata
+                        </li>
+                        <li>
+                            Nobody can modify output?
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Signing data</h3>
+                    dibujo de input - math - input + signature
+                    <ul>
+                        <li>
+                            Input cannot be modified
+                        </li>
+                        <li>
+                            Nobody else can sign inputs
+                        </li>
+                        <li>
+                            No other input will have same signature
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Universal Rules of Cryptography</h2>
                 </section>
 
-<style>
-                blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-  color: #ccc;
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-blockquote div {
-  display: inline;
-}
-</style>
                 <section>
                     <h3>Lesson #1</h3>
                     <blockquote>
@@ -168,8 +274,12 @@ blockquote div {
                     <h3>Kerckhoff's Principle</h3>
                     <blockquote>
                         <div>
-A cryptosystem should be secure even if everything about the system, except the key, is public knowledge                    
+                            A cryptosystem should be secure even if everything about the system, except the key, is public knowledge                    
                         </div>
+                    </blockquote>
+                    <h3>Shannon's simpler version</h3>
+                    <blockquote>
+                        <div>The Enemy knows the system</div>
                     </blockquote>
                 </section>
                 <section>
@@ -178,16 +288,21 @@ A cryptosystem should be secure even if everything about the system, except the 
                         <div>The Enemy knows the system</div>
                     </blockquote>
                 </section>
+                <section>
+                    <h3>Have you ever heard any of these?</h3>
+                </section>
 
                 <section>
-
                     <blockquote>
                         <div>
-                        We do this unusual construction so the attacker won't know how to encrypt a valid token
+                        We do this unusual construction so the attacker won't know how what exactly is done internally
                         </div>
                     </blockquote>
                     <blockquote>
-                        We do this unusual construction so the attacker won't know how to encrypt a valid token
+                        The pen-test did not find any flaws in it
+                    </blockquote>
+                    <blockquote>
+                        xxxx
                     </blockquote>
 
                 </section>
