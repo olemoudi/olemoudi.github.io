@@ -184,7 +184,7 @@ Cifrado no autenticado
                     texto de explicacion de tamaño enano
                 </section>
                 <section>
-                    <h3>Real World Cryptography uses</h3>
+                    <h3>Most Common Real World Cryptography uses on Applications</h3>
                     <ul>
                         <li>
                             Encrypting data (confidentiality and sometimes integrity)
@@ -198,13 +198,33 @@ Cifrado no autenticado
                             </ul>
                         </li>
                         <li>
-                            Signing Data (integrity)
+                            Signing/Authenticating Data
+                            <ul>
+                                <li>
+                                    Integrity
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            Key Exchange  and others (not for this talk)
+                            Password Handling
+                            <ul>
+                                <li>
+                                    Zero-Knowledge Proof
+                                </li>
+                            </ul>
                         </li>
                     </ul>
-
+                </section>
+                <section>
+                    <h4>Other not so common uses we will not cover today</h4>
+                    <ul>
+                        <li>
+                            Key-exchange
+                        </li>
+                        <li>
+                            Forward Secrecy
+                        </li>
+                    </ul>
                 </section>
                 <section>
                     <h3>Encrypting data</h3>
@@ -213,16 +233,18 @@ Cifrado no autenticado
                         <li>
                             Nobody can read output
                         </li>
-                        <li>Nobody can extract metadata
+                        <li>
+                            Nobody can extract metadata
                         </li>
                         <li>
                             Nobody can modify output?
                         </li>
                     </ul>
+                    Popular Algorithms: AES, RSA
                 </section>
                 <section>
-                    <h3>Signing data</h3>
-                    dibujo de input - math - input + signature
+                    <h3>Signing/Authenticating data</h3>
+                    dibujo de input - math - input + signature or MAC
                     <ul>
                         <li>
                             Input cannot be modified
@@ -234,6 +256,7 @@ Cifrado no autenticado
                             No other input will have same signature
                         </li>
                     </ul>
+                    Popular Algorithms: RSA, SHA, HMAC-SHA
                 </section>
                 <section>
                     <h2>Universal Rules of Cryptography</h2>
@@ -324,6 +347,54 @@ Cifrado no autenticado
                         </ol>
                     </div>
                 </section>
+                <section>
+                    <h2>Anti-Patterns for Encrypting Data</h2>
+                </section>
+
+                <section>
+                    <h4>AES-ECB</h4>
+                    ECB (really?)
+                    foto de ECB
+                    <ul>
+                        <li>
+                            
+                        </li>
+                    </ul>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <section>
+                    The lack of justifications makes this as useful as anybody else out there claiming "use X. Don't use Y".
+Eg: > Avoid: AES-CBC, AES-CTR by itself, block ciphers with 64-bit blocks --- most especially Blowfish, which is inexplicably popular, OFB mode. Don't ever use RC4, which is comically broken.
+
+Why not 64-bit blocks? What's wrong with them? How do they affect us?
+
+Mind you, I'm not saying the statement is incorrect, but with no justification for it, I'm not convinced why I should avoid them.
+
+
+	
+tptacek on May 23, 2015 [-]
+
+I mean this sincerely and not as snark: if this is a question you have to ask, just use Nacl; don't design with ciphers yourself. Since there is a "right answer" to this question and a "wrong one", "convincing" doesn't seem like a good use of anyone's time.
+The right way to learn about cryptography is to start by learning how to break it. If that's something you're willing to sink time into, try this thing we set up:
+
+http://cryptopals.com
+                </section>
+
 
                 <section>
                     <h4> remember that thing about not typing A-E-S in your code? </h4>
