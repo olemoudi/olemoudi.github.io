@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Smell-testing Cryptography</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/night.css">
@@ -88,45 +88,21 @@ Cifrado no autenticado
 		<div class="reveal">
 			<div class="slides">
 				<section>
-                    <h2>Smell testing Cryptography</h2>
-                <img src="img/sonar.gif">
+                    <h2>Smell Testing Cryptography</h2>
+                <img src="img/smellsbad.gif">
                     <br>
                     <small><i>...or how I spotted a flaw in your app without reading a two-column whitepaper</i></small>
                     <br>
-                <p>
-                </p>
                 </section>
-
-				<section>
-
-                    <h2>Outline</h2>
-                    <div>
-                        <ol>
-                            <li>
-                                Disclaimer
-                            </li>
-                            <li>
-                                Intro to Applied Crypto
-                            </li>
-                            <li data-fragment-index="0" class="fragment">
-                                Universal Rules of Good Cryptography
-                            </li>
-                            <li data-fragment-index="1" class="fragment">
-                                Common Anti-Patterns to remember
-                            </li>
-                            <li>
-                                Take-home notes
-                            </li>
-                        </ol>
-                    </div>
-                </section>
-
                 <section>
                     <h3>First and foremost...</h3>
                     <div class="fragment" data-fragment-index="0">
                     <h3> &larr;  not an Expert</h3>
                     </div>
                     <!-- foto mia con flecha not an expert -->
+                </section>
+                <section>
+                    I summon the power of peer review
                 </section>
                 <section>
                     <h4>This talk was possible thanks to....</h4>
@@ -168,96 +144,37 @@ Cifrado no autenticado
                     <div class="fragment" data-fragment-index="0">
                     <h4>You don't have to be an expert to smell bad Crypto</h4>
                         <img src="img/smellsbad.gif">
-                        <p>(Bureaucrypto Principle)</p>
+                        <p>(Bureaucryptocracy  Principle)</p>
                     </div>
                 </section>
-                
+
                 <section>
-                    <h2>Quick Introduction to Applied Cryptography</h2>
+                    Also for this talk...
+                    <h4>Crypto = Cryptography</h4>
+                    <h5>Crypto != Cryptocurrencies, Cryptomarkets...</h5>
                 </section>
-                <section>
-                    dibujo de input - math - output
-                    gif de magic
+
+				<section>
+
+                    <h2>Outline</h2>
+                    <div>
+                        <ol>
+                            <li>
+                                Universal Rules of Cryptography
+                            </li>
+                            <li data-fragment-index="0" class="fragment">
+                                Intro to Applied Crypto
+                            </li>
+                            <li data-fragment-index="1" class="fragment">
+                                Anti-Patterns to remember (to smell)
+                            </li>
+                            <li>
+                                Take-home notes
+                            </li>
+                        </ol>
+                    </div>
                 </section>
-                <section>
-                    <h2>Unbreakable <span class="fragment" style="font-size: 30%" data-fragment-index="0"><sup>(1)</sup></span></h2>
-                    texto de explicacion de tamaño enano
-                </section>
-                <section>
-                    <h3>Most Common Real World Cryptography uses on Applications</h3>
-                    <ul>
-                        <li>
-                            Encrypting data (confidentiality and sometimes integrity)
-                            <ul>
-                                <li>
-                                    Confidentiality
-                                </li>
-                                <li>
-                                    Integrity?
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            Signing/Authenticating Data
-                            <ul>
-                                <li>
-                                    Integrity
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            Password Handling
-                            <ul>
-                                <li>
-                                    Zero-Knowledge Proof
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h4>Other not so common uses we will not cover today</h4>
-                    <ul>
-                        <li>
-                            Key-exchange
-                        </li>
-                        <li>
-                            Forward Secrecy
-                        </li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Encrypting data</h3>
-                    dibujo de input - math - output
-                    <ul>
-                        <li>
-                            Nobody can read output
-                        </li>
-                        <li>
-                            Nobody can extract metadata
-                        </li>
-                        <li>
-                            Nobody can modify output?
-                        </li>
-                    </ul>
-                    Popular Algorithms: AES, RSA
-                </section>
-                <section>
-                    <h3>Signing/Authenticating data</h3>
-                    dibujo de input - math - input + signature or MAC
-                    <ul>
-                        <li>
-                            Input cannot be modified
-                        </li>
-                        <li>
-                            Nobody else can sign inputs
-                        </li>
-                        <li>
-                            No other input will have same signature
-                        </li>
-                    </ul>
-                    Popular Algorithms: RSA, SHA, HMAC-SHA
-                </section>
+
                 <section>
                     <h2>Universal Rules of Cryptography</h2>
                 </section>
@@ -272,9 +189,33 @@ Cifrado no autenticado
                     <h3>To clarify:</h3>
                     <blockquote>
                         <div>
+                            Never write crypto
+                            or otherwise said:
                             If You're Typing the Letters A-E-S Into Your Code You’re Doing It Wrong
                         </div>
                     </blockquote>
+                </section>
+                <section>
+                    if i dont need to write anything for open(https)
+                    why i need to do this to storesecret()
+                </section>
+                <section>
+                    <h3>Have you ever heard any of these?</h3>
+                </section>
+
+                <section>
+                    <blockquote>
+                        <div>
+                        We do this unusual construction so the attacker won't know how what exactly is done internally
+                        </div>
+                    </blockquote>
+                    <blockquote>
+                        The pen-test did not find any flaws in it
+                    </blockquote>
+                    <blockquote>
+                        Can you show me why my choice of MGF1+SHA256(SHA1) is wrong?
+                    </blockquote>
+
                 </section>
                 <section>
                     <h3>Schneier's Law</h3>
@@ -282,6 +223,11 @@ Cifrado no autenticado
                         <div>
                             Anyone, from the most clueless amateur to the best cryptographer, can create an algorithm that he himself can't break.
                         </div>
+                    </blockquote>
+                </section>
+                <section>
+                    <blockquote>
+                        <div>The Right Way to learn about Cryptography is to start by learning how to break it</div>
                     </blockquote>
                 </section>
                 <section>
@@ -311,23 +257,103 @@ Cifrado no autenticado
                         <div>The Enemy knows the system</div>
                     </blockquote>
                 </section>
+
+                
                 <section>
-                    <h3>Have you ever heard any of these?</h3>
+                    <h2>Quick Introduction to Applied Cryptography</h2>
                 </section>
-
                 <section>
-                    <blockquote>
-                        <div>
-                        We do this unusual construction so the attacker won't know how what exactly is done internally
-                        </div>
-                    </blockquote>
-                    <blockquote>
-                        The pen-test did not find any flaws in it
-                    </blockquote>
-                    <blockquote>
-                        xxxx
-                    </blockquote>
-
+                    dibujo de input - math - output
+                    gif de magic
+                </section>
+                <section>
+                    <h2>Unbreakable <span class="fragment" style="font-size: 30%" data-fragment-index="0"><sup>(1)</sup></span></h2>
+                    texto de explicacion de tamaño enano
+                </section>
+                <section>
+                    <h4>Most Common Real World Cryptography uses on Applications</h4>
+                    <p>
+                    <ul>
+                        <li>
+                            Encrypting data
+                        </li>
+                        <li>
+                            Signing/Authenticating Data
+                        </li>
+                        <li>
+                            Password Storage
+                        </li>
+                    <h4>Related applied uses</h4>
+                        <li>
+                            Randomness
+                        </li>
+                        <li>
+                            Key Management
+                        </li>
+                    </ul>
+                    </p>
+                </section>
+                <section>
+                    <h4>Other not so common uses we will not cover today</h4>
+                    <ul>
+                        <li>
+                            Key-exchange
+                        </li>
+                        <li>
+                            Forward Secrecy
+                        </li>
+                        <li>
+                            brau
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Encrypting data</h3>
+                    dibujo de input - math - output
+                    <ol>
+                        <li>
+                            Nobody can read output
+                        </li>
+                        <li>
+                            Nobody can extract metadata
+                        </li>
+                        <li>
+                            Nobody can modify output?
+                        </li>
+                    </ol>
+                    Popular Algorithms: AES, RSA
+                </section>
+                <section>
+                    <h3>Signing/Authenticating data</h3>
+                    dibujo de input - math - input + signature or MAC
+                    <ul>
+                        <li>
+                            Input cannot be modified
+                        </li>
+                        <li>
+                            Nobody else can sign inputs
+                        </li>
+                        <li>
+                            No other input will have same signature
+                        </li>
+                    </ul>
+                    Popular Algorithms: RSA, SHA, HMAC-SHA
+                </section>
+                <section>
+                    <h3>Password Storage</h3>
+                    dibujo de input - math - hash 
+                    <ul>
+                        <li>
+                            Different passwords generate different hashes (colission resistance)
+                        </li>
+                        <li>
+                            Unfeasible to password from hash
+                        </li>
+                        <li>
+                            Unfeasible to find a colission
+                        </li>
+                    </ul>
+                    Popular Algorithms: bcrypt, scrypt, PBKDF2, Argon2 
                 </section>
 
 				<section>
@@ -336,10 +362,10 @@ Cifrado no autenticado
                     <div>
                         <ol>
                             <li>
-                                Quick Intro &#x2714;
+                                Universal Rules of Good Crypto &#x2714;
                             </li>
                             <li>
-                                Universal Rules of Good Crypto &#x2714;
+                                Quick Intro &#x2714;
                             </li>
                             <li>
                                 Common Anti-Patterns to remember
@@ -348,23 +374,198 @@ Cifrado no autenticado
                     </div>
                 </section>
                 <section>
-                    <h2>Anti-Patterns for Encrypting Data</h2>
+                    <h4>Antipatterns for...</h4>
+                    <ul>
+                        <li>
+                           Encrypting data
+                        </li>
+                        <li>
+                            Signing/Authenticating data
+                        </li>
+                        <li>
+                            Password storage
+                        </li>
+                        <li>
+                            Randomness
+                        </li>
+                        <li>
+                            Key Management
+                        </li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h2>Anti-Patterns > Encryption</h2>
+                    <ul>
+                        <li>
+                            Block Ciphers
+                        </li>
+                        <li>
+                            Stream Ciphers
+                        </li>
+                        <li>
+                            Asymetric Ciphers
+                        </li>
+                        <li>
+                            Implementation Errors
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Reminder: Expectations Encrypting data</h3>
+                    dibujo de input - math - output
+                    <ol>
+                        <li>
+                            Nobody can read output
+                        </li>
+                        <li>
+                            Nobody can extract metadata
+                        </li>
+                        <li>
+                            Nobody can modify output
+                        </li>
+                    </ol>
                 </section>
 
                 <section>
-                    <h4>AES-ECB</h4>
-                    ECB (really?)
-                    foto de ECB
+                    <h4>Anti-Patterns > Encryption > Block Ciphers</h4>
                     <ul>
                         <li>
-                            
+                            Dangerous Modes of Operation
+                            Avoid: AES-CBC, AES-CTR by itself, block ciphers with 64-bit blocks --- most especially Blowfish, which is inexplicably popular
+                        </li>
+                        <li>
+                        </li>
+
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Anti-Patterns > Encryption > Stream Ciphers</h4>
+                    <ul>
+                        <li>
+                            Nonce reuse
+                        </li>
+                        <li>
+                            RC4
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Anti-Patterns > Encryption > Asymetric Ciphers</h4>
+                    <ul>
+                        <li>
+                            Nonce reuse
+                        </li>
+                        <li>
+                            Encrypting too much data
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Anti-Patterns > Encryption > Implementation flaws</h4>
+                    <ul>
+                        <li>
+                            Small keys (3DES is only actually 112bits)
+                        </li>
+                        <li>
+                            Padding Oracle
+                        </li>
+                        <li>
+                            Poor man's Authenticated Encryption (anything but encrypt then mac)
                         </li>
                     </ul>
                 </section>
 
 
+                <section>
+                    <h2>Anti-Patterns > Signing/Authenticating Data</h2>
+                    <ul>
+                        <li>
+                            Authenticated Encryption
+                        </li>
+                        <li>
+                            Custom Message Authentication Codes (MACs), Horton Principle
+                        </li>
+                        <li>
+                            Reusing keys for Encrypting and Signing (CBC-MAC, RSA)
+                        </li>
+                        <li>
+                            Signing messages instead of hashes (RSA transpa de gerardo)
+                        </li>
+                    </ul>
+                </section>
 
 
+                <section>
+                    <h2>Anti-Patterns > Password Storage</h2>
+                    <ul>
+                        <li>
+                            Encoding
+                        </li>
+                        <li>
+                            General purpose hashes
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Anti-Patterns > Randomness</h2>
+                    <ul>
+                        <li>
+                            Using PRNG
+                        </li>
+                        <li>
+                            sony ps3 dsa flaw wrong random
+                        </li>
+                        <li>
+                            Using weird entropy sources
+                        </li>
+                        <li>
+                            IVs
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Anti-Patterns > Key Management</h2>
+                    <ul>
+                        <li>
+                            Weak Keys
+                        </li>
+                        <li>
+                            Weak Key Storage (Strings?)
+                        </li>
+                        <li>
+                            Weak Key Exchange (Diffie-helman does not protect against MitM)
+                        </li>
+                        <li>
+                            Key reuse
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Anti-Patterns > Bad Designs</h2>
+                    <ul>
+                        <li>
+                            Protocol Agility
+                        </li>
+                        <li>
+                            Letting developers write A-E-S
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Take-home Notes</h4>
+                </section>
+
+                <section>
+                    Cheatsheet
+                </section>
 
 
 
@@ -379,7 +580,7 @@ Cifrado no autenticado
 
                 <section>
                     The lack of justifications makes this as useful as anybody else out there claiming "use X. Don't use Y".
-Eg: > Avoid: AES-CBC, AES-CTR by itself, block ciphers with 64-bit blocks --- most especially Blowfish, which is inexplicably popular, OFB mode. Don't ever use RC4, which is comically broken.
+Eg:  Avoid: AES-CBC, AES-CTR by itself, block ciphers with 64-bit blocks --- most especially Blowfish, which is inexplicably popular, OFB mode. Don't ever use RC4, which is comically broken.
 
 Why not 64-bit blocks? What's wrong with them? How do they affect us?
 
