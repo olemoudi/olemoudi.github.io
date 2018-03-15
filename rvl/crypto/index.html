@@ -257,6 +257,10 @@ Cifrado no autenticado
                         <div>The Enemy knows the system</div>
                     </blockquote>
                 </section>
+                <section>
+                    Smart cryptographers already grappled with the problem you're talking about here, concluded that non-crypto-engineers were never going to get these details right (professional crypto engineers don't even get it right, and there's a whole academic field dedicated to why), and designed high-level libraries that don't expose primitives like cipher cores, block modes, and MACs. You need to be using those high-level libraries. You need to start treating things like "CTR" and "OMAC" like plutonium, instead of like AA batteries.
+                    https://news.ycombinator.com/item?id=4779555
+                </section>
 
                 
                 <section>
@@ -428,28 +432,116 @@ Cifrado no autenticado
                 </section>
 
                 <section>
-                    <h4>Anti-Patterns > Encryption > Block Ciphers</h4>
+                    <h4>Anti-Patterns > Encryption > Block Ciphers </h4>
+                    <strong>AVOID</strong>
                     <ul>
-                        <li>
-                            Dangerous Modes of Operation
-                            Avoid: AES-CBC, AES-CTR by itself, block ciphers with 64-bit blocks --- most especially Blowfish, which is inexplicably popular
+                        <li> Block Ciphers
+                            <ul>
+                                <li>
+                                    ECB
+                                </li>
+                                <li>
+                                    CBC
+                                </li>
+                                <li>
+                                    CTR
+                                </li>
+                                <li>
+                                    64-bit block ciphers (Blowfish, 3DES...)
+                                </li>
+                            </ul>
                         </li>
                         <li>
+                            Stream Ciphers
+                            <ul>
+                                <li>
+                                    RC4
+                                </li>
+                                <li>
+                                    Nonce Reuse
+                                </li>
+                            </ul>
                         </li>
-
                     </ul>
+                    <section>
+                        demo ECB
+                    </section>
+                    <section>
+                        demo CBC
+                    </section>
+                    <section>
+                        demo CTR
+                    </section>
+                    <section>
+                        demo sweet32
+                    </section>
+                    <section>
+                        demo RC4
+                    </section>
+                    <section>
+                        demo Nonce reuse
+                    </section>
+                    
+                </section>
+                <section>
+                    Use Case: I need to encrypt data
+                    Pattern: Use:
+                        <ol>
+                            <li>
+                                Nacl/libsodium default (currently Salsa20-Poly1305)
+                            </li>
+                            <li>
+                                Chacha20-Poly1305
+                            </li>
+                            <li>
+                                AES-GCM
+                            </li>
+                        </ol>
+                        why? 
+                        
+14
+down vote
+I believe there are three main reasons why ChaCha20 is sometime preferred to AES.
+
+On a general purpose 32-bit(or greater) CPU without dedicated instructions ChaCha20 is generally faster than AES. The reason for this is the fact that ChaCha20 is based on ARX (Addition-Rotation-XOR) which are CPU friendly instructions, while AES uses binary fields for the Sbox and Mixcolumns computations, which are generally implemented as look up table in order to be more efficient.
+
+The fact that AES uses lookup table with an index derived from the secret makes general implementations vulnerable to cache-timing attacks. ChaCha20 is not vulnerable to such attacks. (AES implemented through AES-NI is also not vulnerable)
+
+Daniel J. Bernstein is having a significant above-than-average success in advertising his algorithms. (I'm not implying there are no merits. I'm just stating the fact that his algorithms have success in terms of deployment)
+
+Unless we find information from Google - such as white papers & mailinglist posts - we can only speculate why ChaCha20 is chosen. I think that efficient software implementation is still the most likely reason. That AES-GCM is relatively brittle - for instance with regards to timing attacks - could be another.
+
+Note that even though AES-NI is becoming more commonplace in the x86 processor market, that doesn't mean that other processor architectures are implementing AES acceleration. For instance cheap Android phones may not incorporate it.
+
+Furthermore, although AES-NI support is on the CPU, that doesn't mean that the software is actually using the instruction. Notice for instance that AES-GCM is only accelerated in Java 9. GCM mode requires additional instructions for the Galois field multiplication.
+
+Some library implementations of AES_GCM also buffer the ciphertext until the authentication tag is verified instead of using the online properties of the underlying CTR mode decryption. This could efficient implementations harder with regards to memory management.
+
+It is of course possible to use AES CTR and Poly1305 together (while making sure that the keys aren't reused in an insecure fashion). But then the organization would have to define that AEAD algorithm first before you can use it. So using AES probably means GCM authentication and ChaCha20 gives you Poly1305/AES.
                 </section>
 
                 <section>
                     <h4>Anti-Patterns > Encryption > Stream Ciphers</h4>
+                    <strong>AVOID</strong>
                     <ul>
                         <li>
-                            Nonce reuse
-                        </li>
-                        <li>
-                            RC4
+                            Stream Ciphers
+                            <ul>
+                                <li>
+                                    RC4
+                                </li>
+                                <li>
+                                    Nonce Reuse
+                                </li>
+                            </ul>
                         </li>
                     </ul>
+                    <section>
+                        demo RC4
+                    </section>
+                    <section>
+                        demo Nonce reuse
+                    </section>
                 </section>
 
                 <section>
