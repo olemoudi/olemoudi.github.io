@@ -408,10 +408,10 @@ Cifrado no autenticado
                             Stream Ciphers
                         </li>
                         <li>
-                            Asymetric Ciphers
+                            Encryption with Public Key Crypto
                         </li>
                         <li>
-                            Implementation Errors
+                            Common Implementation Errors
                         </li>
                     </ul>
                 </section>
@@ -432,6 +432,7 @@ Cifrado no autenticado
                 </section>
 
                 <section>
+                    <section>
                     <h4>Anti-Patterns > Encryption > Block Ciphers </h4>
                     <strong>AVOID</strong>
                     <ul>
@@ -451,18 +452,8 @@ Cifrado no autenticado
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            Stream Ciphers
-                            <ul>
-                                <li>
-                                    RC4
-                                </li>
-                                <li>
-                                    Nonce Reuse
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
+                    </section>
                     <section>
                         demo ECB
                     </section>
@@ -475,15 +466,10 @@ Cifrado no autenticado
                     <section>
                         demo sweet32
                     </section>
-                    <section>
-                        demo RC4
-                    </section>
-                    <section>
-                        demo Nonce reuse
-                    </section>
                     
                 </section>
                 <section>
+                    <section>
                     Use Case: I need to encrypt data
                     Pattern: Use:
                         <ol>
@@ -497,8 +483,10 @@ Cifrado no autenticado
                                 AES-GCM
                             </li>
                         </ol>
-                        why? 
+                        why? scroll down
+                    </section>
                         
+                    <section>
 14
 down vote
 I believe there are three main reasons why ChaCha20 is sometime preferred to AES.
@@ -518,6 +506,7 @@ Furthermore, although AES-NI support is on the CPU, that doesn't mean that the s
 Some library implementations of AES_GCM also buffer the ciphertext until the authentication tag is verified instead of using the online properties of the underlying CTR mode decryption. This could efficient implementations harder with regards to memory management.
 
 It is of course possible to use AES CTR and Poly1305 together (while making sure that the keys aren't reused in an insecure fashion). But then the organization would have to define that AEAD algorithm first before you can use it. So using AES probably means GCM authentication and ChaCha20 gives you Poly1305/AES.
+                    </section>
                 </section>
 
                 <section>
@@ -537,15 +526,32 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                         </li>
                     </ul>
                     <section>
-                        demo RC4
+                        demo RC4 - comically broken
                     </section>
                     <section>
-                        demo Nonce reuse
+                        demo Nonce reuse 
                     </section>
                 </section>
+                <section>
+                    <section>
+                    Use Case: I need to encrypt data
+                    Pattern: Use:
+                        <ol>
+                            <li>
+                                Nacl/libsodium default (currently Salsa20-Poly1305)
+                            </li>
+                            <li>
+                                Chacha20-Poly1305
+                            </li>
+                            <li>
+                                AES-GCM
+                            </li>
+                        </ol>
+                        why? scroll down
+                    </section>
 
                 <section>
-                    <h4>Anti-Patterns > Encryption > Asymetric Ciphers</h4>
+                    <h4>Anti-Patterns > Encryption > Encryption with Public Key Crypto</h4>
                     <ul>
                         <li>
                             Nonce reuse
@@ -564,6 +570,7 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                         </li>
                         <li>
                             Padding Oracle
+                            https://crypto.stackexchange.com/questions/12688/can-you-explain-bleichenbachers-cca-attack-on-pkcs1-v1-5/12706#12706
                         </li>
                         <li>
                             Poor man's Authenticated Encryption (anything but encrypt then mac)
