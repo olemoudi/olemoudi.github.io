@@ -8,8 +8,11 @@
 var h;
 
 function openwindow() {
-    h =window.open('randomname.html', 'newwindow');
+    h =window.open('randomname.html', 'newwindow', 'menubar=no,toolbar=no,location=no');
     setTimeout(navigate, 3500);
+    h.blur();
+    window.focus();
+
 }
 
 function navigate() {

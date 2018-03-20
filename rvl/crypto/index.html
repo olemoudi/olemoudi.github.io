@@ -145,6 +145,7 @@ Cifrado no autenticado
                     <h4>You don't have to be an expert to smell bad Crypto</h4>
                         <img src="img/smellsbad.gif">
                         <p>(Bureaucryptocracy  Principle)</p>
+                        Dont be afraid to challenge crypto choices!
                     </div>
                 </section>
 
@@ -161,9 +162,6 @@ Cifrado no autenticado
                         <ol>
                             <li>
                                 Universal Rules of Cryptography
-                            </li>
-                            <li data-fragment-index="0" class="fragment">
-                                Intro to Applied Crypto
                             </li>
                             <li data-fragment-index="1" class="fragment">
                                 Anti-Patterns to remember (to smell)
@@ -189,46 +187,36 @@ Cifrado no autenticado
                     <h3>To clarify:</h3>
                     <blockquote>
                         <div>
-                            Never write crypto
+                            Never write <span class="fragment fade-out">your own</span> crypto
+                        </div>
+                        <div>
                             or otherwise said:
                             If You're Typing the Letters A-E-S Into Your Code You’re Doing It Wrong
                         </div>
                     </blockquote>
                 </section>
                 <section>
-                    if i dont need to write anything for open(https)
-                    why i need to do this to storesecret()
+                    Smart cryptographers already grappled with the problem you're talking about here, concluded that non-crypto-engineers were never going to get these details right (professional crypto engineers don't even get it right, and there's a whole academic field dedicated to why), and designed high-level libraries that don't expose primitives like cipher cores, block modes, and MACs. You need to be using those high-level libraries. You need to start treating things like "CTR" and "OMAC" like plutonium, instead of like AA batteries.
+                    https://news.ycombinator.com/item?id=4779555
                 </section>
                 <section>
-                    <h3>Have you ever heard any of these?</h3>
-                </section>
-
-                <section>
-                    <blockquote>
-                        <div>
-                        We do this unusual construction so the attacker won't know how what exactly is done internally
-                        </div>
-                    </blockquote>
-                    <blockquote>
-                        The pen-test did not find any flaws in it
-                    </blockquote>
-                    <blockquote>
-                        Can you show me why my choice of MGF1+SHA256(SHA1) is wrong?
-                    </blockquote>
-
+                    <pre>
+                        <code class="python">
+                            requests open
+                        </code>
+                    </pre>
+                    <pre>
+                        <code class="python">
+                            encrypt with AES
+                        </code>
+                    </pre>
                 </section>
                 <section>
-                    <h3>Schneier's Law</h3>
-                    <blockquote>
-                        <div>
-                            Anyone, from the most clueless amateur to the best cryptographer, can create an algorithm that he himself can't break.
-                        </div>
-                    </blockquote>
+                    Lesson #2: Crypto is Scary
                 </section>
                 <section>
-                    <blockquote>
-                        <div>The Right Way to learn about Cryptography is to start by learning how to break it</div>
-                    </blockquote>
+                    also appealing, seductive, cool, powerful...
+                    foto de F16 con la escalerilla
                 </section>
                 <section>
                     <h3>...</h3>
@@ -236,9 +224,34 @@ Cifrado no autenticado
                         <div>
                             Cryptography is perilous because you get no feedback when you mess up
                         </div>
+                        <ul>
+                            <li>
+                                Code always compiles
+                            </li>
+                            <li>
+                                No crypto tests in CI pipelines (except SAST to some extent)
+                            </li>
+                        </ul>
                     </blockquote>
                 </section>
-
+                <section>
+                    <blockquote>
+                        <div>The Right Way to learn about Cryptography is to start by learning how to break it</div>
+                    </blockquote>
+                        cryptopals.com
+                </section>
+                <section>
+                    <h3>Lesson #3: Detecting Crypto-Fallacies</h3>
+                </section>
+                <section>
+                    have you ever heard any of these?
+                </section>
+                <section>
+                    <blockquote>
+                        We do this unusual combination of algorithms so the attacker won't know how what exactly is done internally
+                    </blockquote>
+                    foto de la niña dando explicaciones
+                </section>
                 <section>
                     <h3>Kerckhoff's Principle</h3>
                     <blockquote>
@@ -252,14 +265,28 @@ Cifrado no autenticado
                     </blockquote>
                 </section>
                 <section>
+                    <blockquote>
+                        But the pen-test did not find any flaws in it
+                    </blockquote>
+                </section>
+                    <blockquote>
+                        OK, if you think my choice of MGF1+SHA256(SHA1) is wrong do a PoC exploiting it
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>Schneier's Law</h3>
+                    <blockquote>
+                        <div>
+                            Anyone, from the most clueless amateur to the best cryptographer, can create an algorithm that he himself can't break.
+                        </div>
+                    </blockquote>
+                </section>
+
+                <section>
                     <h3>Shannon's simpler version</h3>
                     <blockquote>
                         <div>The Enemy knows the system</div>
                     </blockquote>
-                </section>
-                <section>
-                    Smart cryptographers already grappled with the problem you're talking about here, concluded that non-crypto-engineers were never going to get these details right (professional crypto engineers don't even get it right, and there's a whole academic field dedicated to why), and designed high-level libraries that don't expose primitives like cipher cores, block modes, and MACs. You need to be using those high-level libraries. You need to start treating things like "CTR" and "OMAC" like plutonium, instead of like AA batteries.
-                    https://news.ycombinator.com/item?id=4779555
                 </section>
 
                 
@@ -486,27 +513,6 @@ Cifrado no autenticado
                         why? scroll down
                     </section>
                         
-                    <section>
-14
-down vote
-I believe there are three main reasons why ChaCha20 is sometime preferred to AES.
-
-On a general purpose 32-bit(or greater) CPU without dedicated instructions ChaCha20 is generally faster than AES. The reason for this is the fact that ChaCha20 is based on ARX (Addition-Rotation-XOR) which are CPU friendly instructions, while AES uses binary fields for the Sbox and Mixcolumns computations, which are generally implemented as look up table in order to be more efficient.
-
-The fact that AES uses lookup table with an index derived from the secret makes general implementations vulnerable to cache-timing attacks. ChaCha20 is not vulnerable to such attacks. (AES implemented through AES-NI is also not vulnerable)
-
-Daniel J. Bernstein is having a significant above-than-average success in advertising his algorithms. (I'm not implying there are no merits. I'm just stating the fact that his algorithms have success in terms of deployment)
-
-Unless we find information from Google - such as white papers & mailinglist posts - we can only speculate why ChaCha20 is chosen. I think that efficient software implementation is still the most likely reason. That AES-GCM is relatively brittle - for instance with regards to timing attacks - could be another.
-
-Note that even though AES-NI is becoming more commonplace in the x86 processor market, that doesn't mean that other processor architectures are implementing AES acceleration. For instance cheap Android phones may not incorporate it.
-
-Furthermore, although AES-NI support is on the CPU, that doesn't mean that the software is actually using the instruction. Notice for instance that AES-GCM is only accelerated in Java 9. GCM mode requires additional instructions for the Galois field multiplication.
-
-Some library implementations of AES_GCM also buffer the ciphertext until the authentication tag is verified instead of using the online properties of the underlying CTR mode decryption. This could efficient implementations harder with regards to memory management.
-
-It is of course possible to use AES CTR and Poly1305 together (while making sure that the keys aren't reused in an insecure fashion). But then the organization would have to define that AEAD algorithm first before you can use it. So using AES probably means GCM authentication and ChaCha20 gives you Poly1305/AES.
-                    </section>
                 </section>
 
                 <section>
@@ -533,24 +539,6 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                     </section>
                 </section>
                 <section>
-                    <section>
-                    Use Case: I need to encrypt data
-                    Pattern: Use:
-                        <ol>
-                            <li>
-                                Nacl/libsodium default (currently Salsa20-Poly1305)
-                            </li>
-                            <li>
-                                Chacha20-Poly1305
-                            </li>
-                            <li>
-                                AES-GCM
-                            </li>
-                        </ol>
-                        why? scroll down
-                    </section>
-
-                <section>
                     <h4>Anti-Patterns > Encryption > Encryption with Public Key Crypto</h4>
                     <ul>
                         <li>
@@ -573,6 +561,9 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                             https://crypto.stackexchange.com/questions/12688/can-you-explain-bleichenbachers-cca-attack-on-pkcs1-v1-5/12706#12706
                         </li>
                         <li>
+                            timing attacks
+                        </li>
+                        <li>
                             Poor man's Authenticated Encryption (anything but encrypt then mac)
                         </li>
                     </ul>
@@ -583,7 +574,7 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                     <h2>Anti-Patterns > Signing/Authenticating Data</h2>
                     <ul>
                         <li>
-                            Authenticated Encryption
+                            Non-Authenticated Encryption
                         </li>
                         <li>
                             Custom Message Authentication Codes (MACs), Horton Principle
@@ -596,22 +587,41 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                         </li>
                     </ul>
                 </section>
-
+                <section>
+                    demo non auth encryption
+                </section>
+                <section>
+                    demo custom macs with sha
+                </section>
+                <section>
+                    demo reusing keys
+                </section>
+                <section>
+                    demo RSA
+                </section>
 
                 <section>
                     <h2>Anti-Patterns > Password Storage</h2>
+                    AKA zero-knowledge proof (ZKP) storages
                     <ul>
                         <li>
-                            Encoding
+                            encrypt != hash
                         </li>
                         <li>
-                            General purpose hashes
+                            why encrypting?
+                        </li>
+                        <li>
+                            General purpose hashes - NOOO
                         </li>
                     </ul>
+                </section>
+                <section>
+                    cracking passwords
                 </section>
 
                 <section>
                     <h2>Anti-Patterns > Randomness</h2>
+                    why randomness is important for crypto
                     <ul>
                         <li>
                             Using PRNG
@@ -653,14 +663,59 @@ It is of course possible to use AES CTR and Poly1305 together (while making sure
                             Protocol Agility
                         </li>
                         <li>
+                        </li>
+                        <li>
                             Letting developers write A-E-S
                         </li>
                     </ul>
                 </section>
+                <section>
+                    <h3>OK, what do I use then?</h3>
+                </section>
+                <section>
+                    <section>
+                    Use Case: I need to authenticate and encrypt data
+                    Pattern: Use:
+                        <ol>
+                            <li>
+                                Nacl/libsodium default (currently Salsa20-Poly1305)
+                            </li>
+                            <li>
+                                Chacha20-Poly1305
+                            </li>
+                            <li>
+                                AES-GCM
+                            </li>
+                        </ol>
+                        why? scroll down
+                    </section>
+                    <section>
+14
+down vote
+I believe there are three main reasons why ChaCha20 is sometime preferred to AES.
+
+On a general purpose 32-bit(or greater) CPU without dedicated instructions ChaCha20 is generally faster than AES. The reason for this is the fact that ChaCha20 is based on ARX (Addition-Rotation-XOR) which are CPU friendly instructions, while AES uses binary fields for the Sbox and Mixcolumns computations, which are generally implemented as look up table in order to be more efficient.
+
+The fact that AES uses lookup table with an index derived from the secret makes general implementations vulnerable to cache-timing attacks. ChaCha20 is not vulnerable to such attacks. (AES implemented through AES-NI is also not vulnerable)
+
+Daniel J. Bernstein is having a significant above-than-average success in advertising his algorithms. (I'm not implying there are no merits. I'm just stating the fact that his algorithms have success in terms of deployment)
+
+Unless we find information from Google - such as white papers & mailinglist posts - we can only speculate why ChaCha20 is chosen. I think that efficient software implementation is still the most likely reason. That AES-GCM is relatively brittle - for instance with regards to timing attacks - could be another.
+
+Note that even though AES-NI is becoming more commonplace in the x86 processor market, that doesn't mean that other processor architectures are implementing AES acceleration. For instance cheap Android phones may not incorporate it.
+
+Furthermore, although AES-NI support is on the CPU, that doesn't mean that the software is actually using the instruction. Notice for instance that AES-GCM is only accelerated in Java 9. GCM mode requires additional instructions for the Galois field multiplication.
+
+Some library implementations of AES_GCM also buffer the ciphertext until the authentication tag is verified instead of using the online properties of the underlying CTR mode decryption. This could efficient implementations harder with regards to memory management.
+
+It is of course possible to use AES CTR and Poly1305 together (while making sure that the keys aren't reused in an insecure fashion). But then the organization would have to define that AEAD algorithm first before you can use it. So using AES probably means GCM authentication and ChaCha20 gives you Poly1305/AES.
+                    </section>
+                    </section>
 
                 <section>
                     <h4>Take-home Notes</h4>
                 </section>
+
 
                 <section>
                     Cheatsheet
