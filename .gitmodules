@@ -1,0 +1,12 @@
+[submodule "makensi.es/themes/manis"]
+	path = makensi.es/themes/manis
+	url = https://github.com/yursan9/manis-hugo-theme.git
+[submodule "makensi.es/themes/temple"]
+	path = makensi.es/themes/temple
+	url = https://github.com/aos/temple.git
+[submodule "makensi.es/themes/one"]
+	path = makensi.es/themes/one
+	url = https://github.com/resugary/hugo-theme-one.git
+[submodule "makensi.es/themes/cocoa"]
+	path = makensi.es/themes/cocoa
+	url = https://github.com/nishanths/cocoa-hugo-theme.git
