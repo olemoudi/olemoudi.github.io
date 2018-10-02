@@ -1,0 +1,10 @@
+<script src='https://www.google.com/recaptcha/api.js?render=6LcKN3MUAAAAAHpHPdz7otiPq5i2iH5-2el1_Cwu'></script>
+
+<script>
+grecaptcha.ready(function() {
+grecaptcha.execute('6LcKN3MUAAAAAHpHPdz7otiPq5i2iH5-2el1_Cwu', {action: 'test'})
+.then(function(token) {
+alert(token);
+});
+});
+</script>
