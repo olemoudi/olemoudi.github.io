@@ -73,7 +73,9 @@ var start = new Date();
 var seconds = 0;
 var maxcount = 1000
 var half = 10
-chillout.till(async function() {
+(async function() {
+    while (true) {
+//chillout.till(async function() {
         hash = await sha256(makeid());
         if (hash.lastIndexOf(target, 0) === 0) {
             end = new Date();
@@ -93,10 +95,15 @@ chillout.till(async function() {
                 count += 1;
             }
         }
+    }
+    }());
 
+
+    /*
 }).then(function() {
     console.log('finished');
 });
+*/
 
 </script>
 </head>
