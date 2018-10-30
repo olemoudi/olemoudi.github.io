@@ -1,0 +1,98 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>antibot test</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <script src="chillout.js"></script>
+<script>
+var finished = false;
+
+async function sha256(message) {
+
+    // encode as UTF-8
+    const msgBuffer = new TextEncoder('utf-8').encode(message);
+
+    // hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    
+    // convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    // convert bytes to hex string
+    const hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+    return hashHex;
+}
+
+function makeid() {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 32; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+}
+
+
+/*
+sha256(makeid()).then(
+        hash => console.log(hash)
+        );
+        */
+
+
+var start, end;
+
+/*
+(async function() {
+    while (!finished) {
+        hash = await sha256(makeid());
+        if (hash.lastIndexOf(target, 0) === 0) {
+            end = new Date();
+            console.log(hash)
+            diff = end - start
+            diff /= 1000;
+            console.log(" Attempt #" + count + " at target " + target+ " = " + Math.round(diff) + " seconds");
+            start = new Date();
+            if (count > 9) {
+                target = target + '0';
+                count = 0;
+            } else {
+                count += 1;
+            }
+        }
+    }
+}());
+*/
+var hash;
+var target = '0';
+var count = 0;
+var start = new Date();
+var seconds = 0;
+var maxcount = 1000
+var half = 10
+chillout.till(async function() {
+        hash = await sha256(makeid());
+        if (hash.lastIndexOf(target, 0) === 0) {
+            end = new Date();
+            diff = end - start
+            diff /= 1000;
+            seconds += Math.round(diff);
+            //console.log(" Attempt #" + count + " at target " + target+ " = " + Math.round(diff) + " seconds");
+            start = new Date();
+            if (count > maxcount) {
+                console.log("" + maxcount + " hashes with preffix " + target + " = " + seconds + " seconds");
+                document.write("<h3>" + maxcount + " hashes with preffix " + target + " = " + seconds + " seconds</h3>");
+                target = target + '0';
+                count = 0;
+                seconds = 0;
+                maxcount = Math.max(Math.round(maxcount/half), 1);
+            } else {
+                count += 1;
+            }
+        }
+
+}).then(function() {
+    console.log('finished');
+});
+
+</script>
