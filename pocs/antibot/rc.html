@@ -73,37 +73,30 @@ var start = new Date();
 var seconds = 0;
 var maxcount = 1000
 var half = 10
-(async function() {
-    while (true) {
-//chillout.till(async function() {
+chillout.till(async function() {
         hash = await sha256(makeid());
         if (hash.lastIndexOf(target, 0) === 0) {
-            end = new Date();
-            diff = end - start
-            diff /= 1000;
-            seconds += Math.round(diff);
             //console.log(" Attempt #" + count + " at target " + target+ " = " + Math.round(diff) + " seconds");
-            start = new Date();
             if (count > maxcount) {
+                end = new Date();
+                diff = end - start
+                diff /= 1000;
+                seconds = Math.round(diff);
                 console.log("" + maxcount + " hashes with preffix " + target + " = " + seconds + " seconds");
                 document.write("<h3>" + maxcount + " hashes with preffix " + target + " = " + seconds + " seconds</h3>");
                 target = target + '0';
                 count = 0;
                 seconds = 0;
                 maxcount = Math.max(Math.round(maxcount/half), 1);
+                start = new Date();
             } else {
                 count += 1;
             }
         }
-    }
-    }());
 
-
-    /*
 }).then(function() {
     console.log('finished');
 });
-*/
 
 </script>
 </head>
