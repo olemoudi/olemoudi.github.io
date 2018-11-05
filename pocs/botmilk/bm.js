@@ -84,32 +84,41 @@ function isBeyondFloor(hash, floor, step) {
 var sid = 'abcd';
 var start = new Date();
 var end;
-var hash;
+var hash = 'fffffffffffffffffff';
 var seconds = 0;
 var step = 16;
 var floor = 1;
 var key = makeNonceKey(sid);
-key.then( function() {
+var total_seconds = 0;
+var iteration = 1
+key.then( function(key) {
     chillout.till(async function() {
-            nonce = makeNonce(32);
-            key = await makeNonceKey(sid);
             //console.log(key);
-            hash = await hmacSha256(nonce, key);
-            console.log("floor: "+ floor);
             if (isBeyondFloor(hash, floor, step)) {
                 end = new Date();
                 diff = end - start
                 diff /= 1000;
                 seconds = Math.round(diff);
                 pretty_step = 16-step+1;
-                msg = "Hash " + hash.slice(0, floor) + " goes over step "+ pretty_step + " of floor " + floor + " in " + seconds + " seconds";
-                document.write("<h3>" + msg + "</h3>");
                 if (step === 1) {
                     floor += 1;
                     step = 16;
                 } else {
                     step -= 1;
                 }
+                if (floor === 5) {
+                    total_seconds += seconds;
+                    msg = "Hash " + hash.slice(0,floor) + " goes over step "+ pretty_step + " of floor " + floor + " in " + seconds + " seconds (average = " + Math.round(total_seconds / iteration) + ")" ;
+                    document.write("<h3>" + msg + "</h3>");
+                    iteration += 1;
+                    start = new Date();
+                    step = 16;
+                    floor = 1;
+                    hash = 'fffffffffffffffffff';
+                }
+            } else {
+                nonce = makeNonce(32);
+                hash = await hmacSha256(nonce, key);
             }
 
     }).then(function() {
