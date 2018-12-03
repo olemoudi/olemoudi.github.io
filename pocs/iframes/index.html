@@ -1,4 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -7,10 +6,12 @@
   <script>
 
 var w;
+var w2;
 
 function dostuff() {
-    w = window.open('https://www.bancomer.com/', 'target');
-    setTimeout(dostuff2, 10000);
+    //w = window.open('https://www.bancomer.com/', 'target');
+    w = window.open('https://portal.bancomer.com/', 'target');
+    setTimeout(dostuff2, 7500);
 }
 
 function dostuff2() {
@@ -25,5 +26,14 @@ function dostuff2() {
     <p>
     <input type=submit onclick="dostuff()" value="Do it">
     <p>
+
+    <iframe src="https://www.bancomer.com">
+    </iframe>
+    <!--
+    <iframe class="access__iframe" src="https://portal.bancomer.com/comun/ingreso.jsp" height="" style="width: 100%; overflow: hidden; height: 230px;" frameborder="0" id="iFrameResizer0" scrolling="no">
+    <p>Your browser does not support iframes.</p>
+
+</iframe>
+    -->
 </body>
 </html>
