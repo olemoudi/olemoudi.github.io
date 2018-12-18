@@ -1,4 +1,4 @@
-title: makensi
+title: /
 description: Martín Obiols personal site
 author: Martín Obiols
 github: https://github.com/olemoudi
@@ -30,8 +30,6 @@ share:
 urls:
     - text: About Me
       url: /about/
-    - text: Publications / Rants
-      url: /posts/
     - text: XML Feed
       url: /feed.xml
 
