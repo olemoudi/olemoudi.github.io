@@ -7,7 +7,7 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
-This content was originally posted as a [Twitter Thread](https://twitter.com/olemoudi/status/1075067288741666817). Copied here for archive purposes. Please, forgive potential typos and the succicnt writing style.
+This content was originally posted as a [Twitter Thread](https://twitter.com/olemoudi/status/1075067288741666817). Copied here for archive purposes. Please, forgive potential typos and the succinct writing style.
 
 ---
 
