@@ -7,9 +7,8 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
-# your content post with markdown syntax goes here...
-
 This content was originally posted as a [Twitter Thread](https://twitter.com/olemoudi/status/1075067288741666817). Copied here for archive purposes. Please, forgive potential typos and the succicnt writing style.
+
 ---
 
 It's almost 2019, most of us have access to modern mobile hardware but aside from platform services such as Apple/Google Pay and Local Authentication (FaceID/Fingerprints) there's still a shortage of sound crypto for handling secrets on the client-side. Here's why:
