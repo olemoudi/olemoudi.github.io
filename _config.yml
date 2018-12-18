@@ -1,0 +1,53 @@
+title: makensi
+description: Martín Obiols personal site
+author: Martín Obiols
+github: https://github.com/olemoudi
+about: I am a Security Engineer interested in Application Security and Secure Development. 
+disqus_shortname: makensi
+google_analytics: UA-XXXXXXXX-Y
+avatar_url: /static/img/avatar.jpg
+
+enableTags: true
+tagarray: []
+
+#collections:
+#  project:
+#    output: true
+#    permalink: /project/:path/
+
+social:
+    - icon: fa-twitter
+      link: "https://twitter.com/olemoudi"
+    - icon: fa-linkedin
+      link: "https://linkedin.com/in/mobiols"
+    - icon: fa-github
+      link: "https://github.com/olemoudi"
+
+share:
+  twitter_username: olemoudi
+  fb_appid: 1
+
+urls:
+    - text: About Me
+      url: /about/
+    - text: Publications / Rants
+      url: /posts/
+    - text: XML Feed
+      url: /feed.xml
+
+url: "https://olemoudi.github.io"
+baseurl: ""
+paginate: 20
+per_page: 20
+paginate_path: "/page/:num/"
+markdown: kramdown
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: ['development']
