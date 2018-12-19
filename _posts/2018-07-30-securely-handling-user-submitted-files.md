@@ -23,12 +23,12 @@ But also you expose your app to script execution (XSS), which enables potent att
 So, what can you do to protect yourself? (If you cannot afford to just outsource to S3...).
 
 Standard 3-prong approach: 
-1- Input Validation
-2- Sandboxed Storage
-3- Proper serving
+1. Input Validation
+2. Sandboxed Storage
+3. Proper serving
 
 
-Your first line of defense should be basic input validation checks: file size limits, whitelist of accepted file extensions and content validation by doing magic bit sniffing (e.g. using https://tika.apache.org/ )
+Your first line of defense should be basic input validation checks: file size limits, whitelist of accepted file extensions and content validation by doing magic bit sniffing (e.g. using [Apache Tika](https://tika.apache.org/ )
 
 Remember not to store the received file anywhere just yet while you conduct your full-fledged assessment over it. Don't do delete when wrong but instead publish when right. Race conditions could bite you if you don't follow this practice.
 
@@ -38,11 +38,11 @@ Now the tricky parts: carefully evaluate if you can afford to re-encode every fi
 
 This of course depends on the array of formats that you accept but typically for images should be a must-do for every app.
 
-Establish additional rules of engagement before attempting encoding operations. Some very small images can actually have 6-digit pixel resolutions and 1kbyte zipfiles extract to thousands of gigabytes (http://www.unforgettable.dk/)
+Establish additional rules of engagement before attempting encoding operations. Some very small images can actually have 6-digit pixel resolutions and [1kbyte zipfiles extract to thousands of gigabytes](http://www.unforgettable.dk/)
 
-Processing user-submitted files is like strolling on thin ice. Also you should tune in to updates in your third party encoding libraries (https://imagetragick.com/  )
+Processing user-submitted files is like strolling on thin ice. Also you should tune in to updates in your [third party encoding libraries](https://imagetragick.com/  )
 
-Or just copy the libraries Google uses https://www.google.com/about/appsecurity/patch-rewards/ 
+Or just copy the [libraries Google uses](https://www.google.com/about/appsecurity/patch-rewards/ )
 
 
 BUT if you can't affort to reencode, at least try to open the received file and check for sanity bounds.
