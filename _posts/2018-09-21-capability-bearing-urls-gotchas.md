@@ -1,7 +1,7 @@
 ---
 layout: post                          # (require) default post layout
 title: "Securely managing Capability-bearing URLs"                   # (require) a string title
-date: 2018-12-18 19:00:02 +0100       # (require) a post date
+date: 2018-09-21 19:00:02 +0100       # (require) a post date
 categories: [web, appsec]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
 tags: [foo, bar]                      # (custom) tags only for meta `property="article:tag"`
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
