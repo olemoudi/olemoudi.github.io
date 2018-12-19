@@ -23,7 +23,7 @@ Crypto APIs should be designed to be misuse resistant, particularly on default s
 
 Mobile Apps may be offline once installed but their delivery channel isn't. We tend to forget someone can obtain access to developer account + signing cert and push a malicious app update through markets.
 
-Whats the actual value of this GPlay developer account+cert? [https://play.google.com/store/apps/details?id=com.android.keepass&hl=en]
+Whats the actual value of this GPlay developer account+cert? <https://play.google.com/store/apps/details?id=com.android.keepass&hl=en> :scream:
 
 Maybe mentioned during the talk but not on the slides: Prevent high profile mobile apps from auto-updating from markets. Keep available updates on the fridge for a week until no red flags raised
 
