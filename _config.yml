@@ -2,9 +2,9 @@ title: /
 description: Martín Obiols personal site
 author: Martín Obiols
 github: https://github.com/olemoudi
-about: I am a Security Engineer interested in Application Security and Secure Development. 
+about: Random InfoSec Rants
 disqus_shortname: makensi
-google_analytics: UA-XXXXXXXX-Y
+google_analytics: UA-11822210-1 
 avatar_url: /static/img/avatar.jpg
 
 enableTags: true
