@@ -2,7 +2,7 @@
 layout: post                          # (require) default post layout
 title: "Quirks of Storing Sensitive Data client-side in 2019"                   # (require) a string title
 date: 2018-12-18 19:00:02 +0100       # (require) a post date
-categories: [security, crypto, mobile, android, ios, web]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
+categories: [crypto, mobile, android, ios, web]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
 tags: [foo, bar]                      # (custom) tags only for meta `property="article:tag"`
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
