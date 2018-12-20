@@ -2,7 +2,7 @@
 layout: post                          # (require) default post layout
 title: "[SLIDES] Security Implications of Open Redirects"                   # (require) a string title
 date: 2013-09-12 19:00:02 +0100       # (require) a post date
-categories: [web, appsec]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
+categories: [web, appsec, slides]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
 tags: [foo, bar]                      # (custom) tags only for meta `property="article:tag"`
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
