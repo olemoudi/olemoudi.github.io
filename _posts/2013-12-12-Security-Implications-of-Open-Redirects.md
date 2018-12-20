@@ -7,7 +7,7 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
-![Security & Open Redirects](/static/img/openredirs.png)
+[![Security & Open Redirects](/static/img/openredirs.png)](https://makensi.es/rvl/openredirs)
 
 So Open Redirects debate always comes back again and again across security rooms. I often dig the claim that these should not get real attention since they hardly get used beyond PoCs, but there are still some situations in which they can become a real issue.
 
