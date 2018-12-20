@@ -16,5 +16,3 @@ Having read a lot lately about hacks making use of open redirectors to accomplis
 [Link to Slides](https://makensi.es/rvl/openredirs)
 ---
   
-<br/>
-<iframe src="https://makensi.es/rvl/openredirs" frameborder="0"></iframe>
