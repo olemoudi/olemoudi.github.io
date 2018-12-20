@@ -11,4 +11,4 @@ So Open Redirects debate always comes back again and again across security rooms
 
 Having read a lot lately about hacks making use of open redirectors to accomplish all sorts of cool vuln chaining, I decided to tie up all my loose thoughts in a deck of slides, in the hopes that it can serve as a reference for the current and actual impact of delivering arbitrary redirects to your users.
 
-<iframe src=="/rvl/openrdirs"></iframe>
+<iframe src="/rvl/openrdirs" frameborder="0"></iframe>
