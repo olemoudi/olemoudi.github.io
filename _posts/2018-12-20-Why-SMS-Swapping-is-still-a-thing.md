@@ -11,7 +11,7 @@ This content was originally posted as a [Twitter Thread](https://twitter.com/ole
 
 ---
 
-![ptacek on plutonium](/static/img/sim-swapping.jpg)
+![sim swapping](/static/img/sim-swapping.jpg)
 
 [News out there](https://twitter.com/olemoudi/status/1075862329949126657) that attackers are bypassing 2FA based on One-time codes sent in SMS. A bit misleading since the attack is based on tricking people into sharing their codes with a fake login site.
 

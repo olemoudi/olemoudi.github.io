@@ -11,6 +11,8 @@ This content was originally posted as a [Twitter Thread](https://twitter.com/ole
 
 ---
 
+![secure element](/static/img/secure-element.jpg)
+
 It's almost 2019, most of us have access to modern mobile hardware but aside from platform services such as Apple/Google Pay and Local Authentication (FaceID/Fingerprints) there's still a shortage of sound crypto for handling secrets on the client-side. Here's why:
 
 Don't get me wrong, we have good crypto out there, but it's still hard to effectively leverage the full capabilities of end user hardware, particularly at scale Let's examine the current situation for iOS, Android and Browsers:
