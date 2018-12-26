@@ -16,7 +16,7 @@ This content was originally posted as a [Twitter Thread](https://twitter.com/ole
 
 I know anti-phishing is a business that feeds a lot of people but the way this war is fought today just seems off to me.
 
-irst, I differentiate targeted phishing campaigns (usually APTs) from massive or moderately massive phishing. I don't think I need to point out why you can't fight the former with awareness.
+First, I differentiate targeted phishing campaigns (usually APTs) from massive or moderately massive phishing. I don't think I need to point out why you can't fight the former with awareness.
 
 Massive phishing is like mail spam: Cheap, risk-free and thrives under big numbers. 1 victim for each 100 targets might seem a low turnover but if you have 100k targets from the same bank figures suddenly get grimmer, while staying cheap for the phisher. But 1% is sooo distant from real world figures for phishing click-through from regular users. In one of my past gigs we conducted regular internal phishing on employees massively. Click-through never went below 10%.
 
