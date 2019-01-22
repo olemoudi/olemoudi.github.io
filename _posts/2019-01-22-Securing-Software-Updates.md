@@ -21,7 +21,9 @@ In certain distribution models, this reduction seems to make sense from a slight
 
 It is true that, when talking about software distribution, it is generally more crucial to sign binaries that it is to transmit updates over secure channels. This is one of the reasons Apple got away with updates over HTTP up until iOS 10 (they did control the mirrors though). Typically, one can find distribution channels over TLS through unofficial mirrors that do not provide signature checking. At most, they provide text signatures and shift the responsibility of checking package signatures to the end user by bundling hashes with each download. 
 
-I can relate to the fact that too much heat was pointed towards APT and VLC teams for not using TLS, but ignoring lots of other packages distributed over TLS but without signatures. However good defense in depth principles suggest that we should not ditch TLS just because of package signatures seem to get us covered under a particular threat model.
+Let's not forget that for a very long time, it was not possible to [download Putty in any secure fashion whatsoever](https://news.ycombinator.com/item?id=9577861).
+
+I can relate to the fact that too much heat was pointed towards APT and VLC teams for not using TLS, while the community chose to ignore lots of other packages distributed over TLS but without signatures. However good defense in depth principles suggest that we should not ditch TLS just because of package signatures seem to get us covered under a particular threat model.
 
 Aside from the fact that TLS in 2019 is ridicously cheap in all senses and excuses for not deploying it have been entirely debunked, as Matthew Green puts it, opting out is probably a bad decision in the long run. Software signing and verification schemes are greatly unvetted compared to TLS protocols, and bugs do appear eventually.
 
