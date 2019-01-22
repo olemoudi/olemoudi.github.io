@@ -7,6 +7,8 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
+![software update](/static/img/oreo.png)
+
 VideoLAN team have recently attracted some heat because of their refusal to evaluate the need of adding TLS to their update distribution channels.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">We all love your media player, but that’s really rude <a href="https://twitter.com/hashtag/VLC?src=hash&amp;ref_src=twsrc%5Etfw">#VLC</a> 🙄<br><br>VLC developers refused to consider <a href="https://twitter.com/hashtag/software?src=hash&amp;ref_src=twsrc%5Etfw">#software</a> &quot;update-over-HTTP&quot; as a threat.<br><br>Responded→ “no threat model. no proof. no <a href="https://twitter.com/hashtag/security?src=hash&amp;ref_src=twsrc%5Etfw">#security</a> bug&quot;<br><br>It wouldn&#39;t hurt if you simply consider the suggestion.<a href="https://t.co/GWhE1US5Ko">https://t.co/GWhE1US5Ko</a> <a href="https://t.co/L77KDcNUMy">pic.twitter.com/L77KDcNUMy</a></p>&mdash; The Hacker News (@TheHackersNews) <a href="https://twitter.com/TheHackersNews/status/1086659984958652416?ref_src=twsrc%5Etfw">January 19, 2019</a></blockquote>
