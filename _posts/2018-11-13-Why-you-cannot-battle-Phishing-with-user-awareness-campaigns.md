@@ -14,6 +14,8 @@ This content was originally posted as a [Twitter Thread](https://twitter.com/ole
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Unpopular opinion of the day: <a href="https://twitter.com/hashtag/phishing?src=hash&amp;ref_src=twsrc%5Etfw">#phishing</a> awareness campaigns and teaching your users to stay frosty is a close to useless endeavour. A waste of resources. Read on to see my point (1/n) /cc <a href="https://twitter.com/troyhunt?ref_src=twsrc%5Etfw">@troyhunt</a> <a href="https://twitter.com/randomdross?ref_src=twsrc%5Etfw">@randomdross</a> <a href="https://twitter.com/sirdarckcat?ref_src=twsrc%5Etfw">@sirdarckcat</a></p>&mdash; Martín Obiols (@olemoudi) <a href="https://twitter.com/olemoudi/status/1062127172629028864?ref_src=twsrc%5Etfw">November 12, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+   
+
 I know anti-phishing is a business that feeds a lot of people but the way this war is fought today just seems a bit off to me.
 
 First, I differentiate targeted phishing campaigns (usually APTs) from massive or moderately massive phishing. I don't think I need to point out why you can't fight the former with awareness.
@@ -27,24 +29,30 @@ The bait will happen to be believable enough to someone, somewhere. It just happ
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I am an engineer working for an anti-phishing security company and I confess I have had some -majorly- close calls from our training simulations. Everyone gets tired, distracted, or careless, not just unsophisticated people.</p>&mdash; Nathaniel Jones (@thenthj) <a href="https://twitter.com/thenthj/status/1037474559849652225?ref_src=twsrc%5Etfw">September 5, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+   
+
 And we are just getting started on the *"don't click on unknown links"*  typical security adagio you still often get from awareness campaigns.
 
 Yeah right, as if in 2018 you could know where the hundreds of links you click every day take you to. Consider link shorteners, open redirects from trusted domains, lack of status bar preview on touchscreens, TOCTOU, tabnabbing... 
 
 If you still believe you can teach users to not click on links brainlessly, consider also that **there are links that do not look like links at all**. 
 
+   
+
 ### Exhibit A: 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">This is the closest I&#39;ve ever come to falling for a Gmail phishing attack. If it hadn&#39;t been for my high-DPI screen making the image fuzzy… <a href="https://t.co/MizEWYksBh">pic.twitter.com/MizEWYksBh</a></p>&mdash; Tom Scott (@tomscott) <a href="https://twitter.com/tomscott/status/812265182646927361?ref_src=twsrc%5Etfw">December 23, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   
-  
+   
+
 
 ### Exhibit B:
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Phishing (or malware) Google Doc links that appear to come from people you may know are going around. DELETE THE EMAIL. DON&#39;T CLICK. <a href="https://t.co/fSZcS7ljhu">pic.twitter.com/fSZcS7ljhu</a></p>&mdash; zeynep tufekci (@zeynep) <a href="https://twitter.com/zeynep/status/859840026082988038?ref_src=twsrc%5Etfw">May 3, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+   
   
   
 ### Exhibit C:
@@ -70,21 +78,28 @@ So let's say after your awareness campaign your users actually glance at the add
   
 
 In some other cases, you are being deceived by UI bugs: 
+
+   
   
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">RT if you think the address bar should display an origin.  <a href="https://twitter.com/msftsecresponse?ref_src=twsrc%5Etfw">@msftsecresponse</a> says it shouldn&#39;t.  =( <a href="https://t.co/qv4fuGW2ct">pic.twitter.com/qv4fuGW2ct</a></p>&mdash; baseband javascript rce nightmare scenario (@randomdross) <a href="https://twitter.com/randomdross/status/704366020610228225?ref_src=twsrc%5Etfw">February 29, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   
 
+   
 
 In other cases, it's the size of the screen what matters:
+
+   
 
 <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">Even the size of your screen matters: <a href="https://t.co/CXJhmhZs46">pic.twitter.com/CXJhmhZs46</a></p>&mdash; Martín Obiols (@olemoudi) <a href="https://twitter.com/olemoudi/status/1062127205797584896?ref_src=twsrc%5Etfw">November 12, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-  
+   
 
 And... it's not enough to only check the address bar *only once*, heh, what were you thinking?
+
+   
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AXEXcV7m3ds" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -92,7 +107,7 @@ And... it's not enough to only check the address bar *only once*, heh, what were
 
 Lastly, have you considered Mobile UI design principles? Real state is pricy so the address bar is just not there sometimes:
 
-  
+   
 
 <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/randomdross?ref_src=twsrc%5Etfw">@randomdross</a> it seems the iOS Gmail app thinks the same <a href="https://t.co/Yl2aQ4y4lN">pic.twitter.com/Yl2aQ4y4lN</a></p>&mdash; Martín Obiols (@olemoudi) <a href="https://twitter.com/olemoudi/status/704809052359016448?ref_src=twsrc%5Etfw">March 1, 2016</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -100,6 +115,8 @@ Lastly, have you considered Mobile UI design principles? Real state is pricy so 
   
 
 I could go on but you get the point. How do we effectively fix this in a sustainable manner? Not by focusing on awareness that's for sure. Some people think the only way forward is down [the U2F road](https://www.troyhunt.com/beyond-passwords-2fa-u2f-and-google-advanced-protection/). I mostly agree, but time will tell. 
+
+   
 
 UPDATE
 ------
