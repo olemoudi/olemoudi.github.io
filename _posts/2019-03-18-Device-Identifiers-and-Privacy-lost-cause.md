@@ -24,9 +24,9 @@ Enter Mobile Platforms. With the return of native, thick client apps on Android 
 
 Generally speaking, there are several reasons to avoid using hardware data when generating Device Identifiers:
 
-    - Hardware property availability greatly vary across devices with different form factors and capabilities (e.g. Tablets VS Phones) and between OS Versions
-    - They do not truly guarantee uniqueness nor low collision probability
-    - Usage of most of them is deprecated or frowned upon by OS vendors (Google and Apple) which are quite adamant about applications not relying on them for device identification purposes. This means that their availability through platform APIs may change in the future.
+- Hardware property availability greatly vary across devices with different form factors and capabilities (e.g. Tablets VS Phones) and between OS Versions
+- They do not truly guarantee uniqueness nor low collision probability
+- Usage of most of them is deprecated or frowned upon by OS vendors (Google and Apple) which are quite adamant about applications not relying on them for device identification purposes. This means that their availability through platform APIs may change in the future.
 
 In 2013 Apple reacted to this once they realized developers were harvesting _Universal Device Identifiers_ for tracking purposes by [banning access to this data](https://www.macrumors.com/2013/03/21/apple-will-no-longer-approve-apps-using-unique-device-identifier-udid-beginning-may-1/) from application code. The absence of iOS APIs to read SIM information (ICCID, MSISDN...) left developers with very little room to gather non-resettable inputs from device hardware. Some nifty tricks based on [Keychain quirks](https://forums.developer.apple.com/message/210531#210531) were used for years but eventually were shot down by Apple. The message was clear: non-resettable identifiers harm user privacy, and Apple is [fairly adamant](https://9to5mac.com/2019/01/05/apple-privacy-billboard-vegas-ces/) about safeguarding that very privilege on behalf of their clients.
 
