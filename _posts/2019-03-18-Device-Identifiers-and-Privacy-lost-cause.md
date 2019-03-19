@@ -7,6 +7,8 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: passports.png             # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
+![passports](/static/img/passports.png)
+
 Applications typically need to establish a way to detect when the user changes devices or to identify applications that are installed on the same device. Device identifiers serve this purpose by providing a token that usually covers the following requirements:
 
  - **Universally unique** - there should be enough identifiers available to cover the space of all possible devices
