@@ -45,7 +45,7 @@ It is unclear how this fight will develop in the upcoming years, but something s
 A good alternative to hardware identifiers is **device binding**. This entails a set of techniques that bind some enrollment data to the device itself, making it extremelly hard to have it migrated to a different device. Some of these techniques include:
 
 - Android: Enrolling non-exportable, [attested keys](https://developer.android.com/training/articles/security-key-attestation.html)
-- iOS: Keychain accessibility constants with `ThisDeviceOnly` suffix
+- iOS: [Keychain accessibility constants](https://developer.apple.com/documentation/security/keychain_services/keychain_items/restricting_keychain_item_accessibility) with `ThisDeviceOnly` suffix
 
 Of course you will still have to deal with OS fragmentation, platform quirks, unexpected behavours and corner cases, particularly for applications at scale. Is it really worth it or you can get away to just generating installation IDs? Think carefully.
 
