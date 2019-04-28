@@ -118,14 +118,28 @@ I could go on but you get the point. How do we effectively fix this in a sustain
 
    
 
-UPDATE
+UPDATES
 ------
 
-Another Example of hopelessness: this one is a fake popup resembling the "Login with Facebook" window that is used in most social logins. The popup is actually built as part of the original origin, thus having full access to the login form.
+* Update 28-4-2019 - This one exploits Mobile UI optimization of screen space. By hiding the Address Bar, mobile browsers expose themselves to redressing attacks that fool the user with fake Address Bars: [The Inception Bar](https://jameshfisher.com/2019/04/27/the-inception-bar-a-new-phishing-method/), a new phishing method
+
+<video width="100%" controls="" autoplay="" loop="" style="margin: 0 auto; border: 2px solid black;">
+  <source src="https://d33wubrfki0l68.cloudfront.net/783bd862c3df19b6fb4eac0b4f687d598c957891/a3915/assets/2019-04-27/demo.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+There is also a great [quote](https://news.ycombinator.com/item?id=19770055) from the [Hacker News](https://news.ycombinator.com/item?id=19768072) thread:
+
+
+> > I can't help but think that this was made possible by the complete collapse in common UI standards. 'Apps' have stopped being OS-toolkit apps and moved onto the web, and of course each designer needs to have their own special on-brand widget style. This has leaked onto the few remaining desktop apps: Chrome rejects the standard Mac OS widgets and reimplements everything, from buttons to the print dialog. Spotify does its own thing. And lest we think Apple has much respect for UX, iTunes is a mess. I genuinely can't use it. The result is that users have been trained not to expect consistent UI paradigms. Every UI is hunt-and-peck. And that paves the way for this kind of exploit.
+
+* Update 14-2-2019 - Another Example of hopelessness: this one is a fake popup resembling the "Login with Facebook" window that is used in most social logins. The popup is actually built as part of the original origin, thus having full access to the login form.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nq1gnvYC144" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+
+* Update - [Cursory Attack](https://jameshfisher.github.io/cursory-hack/)
 
 
 
