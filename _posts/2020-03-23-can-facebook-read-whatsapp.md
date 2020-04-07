@@ -7,7 +7,7 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: whatsapp.jpg            # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
-# Before you read this article
+# Before you read this
 
 This article is a collection of relevant information and reference links to enrich the discussion of whether unauthorized parties can obtain access to WhatsApp messages without user explicit consent.
 
@@ -27,7 +27,7 @@ This article is divided into the following major sections:
 3. [Additional Relevant Information on the Security of your Chats](#plus)
 3. [Conclusion](#conclusion)
 
-# [Introduction & Context](#intro)
+## [Introduction & Context](#intro)
 
 <div style="text-align:center"><img src="/static/img/e2ee/banner.png" /></div>
 
