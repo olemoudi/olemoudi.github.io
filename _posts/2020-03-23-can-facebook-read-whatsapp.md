@@ -149,27 +149,27 @@ On top of that, their track record does not help building trust on a platform fu
 
 This is a by-no-means-comprehensive sample of recent news of concern from a privacy perspective. Despite WhatsApp has not suffered any major privacy incident yet, these may however help showcase examples of foreseeable incidents.
 
-### Facebook has been paying people to install a “Research” VPN
+#### Facebook has been paying people to install a “Research” VPN
 
 > *Desperate for data on its competitors, Facebook  has been secretly paying people to install a “Facebook Research” VPN that **lets the company suck in all of a user’s phone and web activity**, similar to Facebook’s Onavo Protect app that Apple banned in June and that was removed in August.*
 > 
 >  [Techcrunch 2019](https://techcrunch.com/2019/01/29/facebook-project-atlas/)
 
-### Facebook Is Giving Advertisers Access to Your Shadow Contact Information
+#### Facebook Is Giving Advertisers Access to Your Shadow Contact Information
 
 > *Facebook is not content to use the contact information you willingly put into your Facebook profile for advertising. It is also **using contact information you handed over for security purposes and contact information you didn’t hand over at all**, but that was collected from other people’s contact books, a hidden layer of details Facebook has about you that I’ve come to call “shadow contact information.”*
 >
 > [Gizmodo 2018](https://gizmodo.com/facebook-is-giving-advertisers-access-to-your-shadow-co-1828476051)
 
 
-### Ever Record a Video on Facebook? Facebook Still Has It.
+#### Ever Record a Video on Facebook? Facebook Still Has It.
 
 > *Facebook’s current data policy says that the company can “collect the content and other information you provide when you use our Services, including when you sign up for an account, create or share, and message or communicate with others.” “Create” is the operative word in there. By that logic, **Facebook technically could save any video a user filmed but did not publish** because you created it on the platform.* 
 > 
 > [NYMag 2018](https://nymag.com/intelligencer/2018/03/facebook-secretly-saved-videos-users-deleted.html)
 
 
-### Cambridge Analytica data scandal
+#### Cambridge Analytica data scandal
 
 > *The Facebook–Cambridge Analytica data scandal was a major scandal in early 2018 where **Cambridge Analytica harvested the personal data of millions of people's Facebook profiles without their consent** and used it for political advertising. It has been described as a watershed moment in the public understanding of personal data and precipitated a huge fall in Facebook's stock price and calls for tighter regulation of tech companies' use of personal data.*
 > 
@@ -207,7 +207,7 @@ But also there is the possibility that they are just making mistakes.
 
 Exhibit A:
 
-### Facebook Stored Hundreds of Millions of User Passwords in Plain Text for Years 
+#### Facebook Stored Hundreds of Millions of User Passwords in Plain Text for Years 
 >*The Facebook source said the investigation so far indicates between 200 million and 600 million Facebook users may have had their account passwords stored in plain text and searchable by more than 20,000 Facebook employees. The source said Facebook is still trying to determine how many passwords were exposed and for how long, but so far the inquiry has uncovered archives with plain text user passwords dating back to 2012.*
 >
 > [Krebs on Security 2019](https://krebsonsecurity.com/2019/03/facebook-stored-hundreds-of-millions-of-user-passwords-in-plain-text-for-years/)
@@ -300,7 +300,7 @@ Beyond mere E2EE technical or legal topics, there are other aspects to understan
 
 **E2EE is completely vulnerable of misbehaving clients**. That is, any code on the devices that establish the E2EE communication ultimately has access to all the data you send and receive. Because of this, your data is still vulnerable to physical device compromise, proximity attacks or just rare bugs like this one from 2019.
 
-### Bug lets snoopers put spyware on your phone with just a call
+#### Bug lets snoopers put spyware on your phone with just a call
 
 > *WhatsApp has disclosed a serious vulnerability in the messaging app that gives snoops a way to remotely inject Israeli spyware on iPhone and Android devices simply by calling the target.*
 >
@@ -348,7 +348,7 @@ Why? Well, as [Moxie](https://signal.org/blog/there-is-no-whatsapp-backdoor/) pu
 
 Other less prominent but equally right voices were raised against claims that this could be considered a backdoor:
 
-### In Response to Guardian’s Irresponsible Reporting on WhatsApp: A Plea for Responsible and Contextualized Reporting on User Security
+#### In Response to Guardian’s Irresponsible Reporting on WhatsApp: A Plea for Responsible and Contextualized Reporting on User Security
 
 > *The behavior described in your article is not a backdoor in WhatsApp. This is the overwhelming consensus of the cryptography and security community. It is also the collective opinion of the cryptography professionals whose names appear below. **The behavior you highlight is a measured tradeoff that poses a remote threat  in return for real benefits that help keep users secure**, as we will discuss in a moment.*
 >
@@ -360,7 +360,7 @@ Other less prominent but equally right voices were raised against claims that th
 
 E2EE is great but there's another catch: if service providers cannot look at what you send or receive... how are they supposed to fight abuse?
 
-### Modern anti-spam and E2E crypto
+#### Modern anti-spam and E2E crypto
 
 >*The first problem we have in the E2E context is that reputation databases
 require input from *all* mail. We can imagine an email client that knows
