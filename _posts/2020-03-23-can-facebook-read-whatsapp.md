@@ -57,7 +57,7 @@ If you happen to be sending data to someone else, the server typically needs to 
 
 <div style="text-align:center"><img src="/static/img/e2ee/tls2.png" /></div>
 
-As shown in the picture, this means **the owner of the service can, in theory, read and modify everything that you send**. This does not mean that he should, but the option is there. This is why privacy matters on free services (and even paid ones) become iffy. How do you know the owner is behaving? Often you can't.
+As shown in the picture, this means **the owner of the service can, in theory, read and modify everything that you send**. This does not mean that he should, but the option is there. This is why free services (and even paid ones) posture on user privacy becomes iffy. How do you know the owner is behaving? Often you can't.
 
 Regardless, for particularly sensitive communications **the point might not be who else has the capability to read the messages, but if anyone can at all**. In this sense, regardless of the ethics or business model of the service owner, the opportunity remains available for law enforcement, state agencies and malicious actors alike.
 
@@ -67,13 +67,13 @@ Regardless, for particularly sensitive communications **the point might not be w
 <a name="e2ee"></a>
 # [Enter End-to-End Encryption](#e2ee)
 
-Alternatively and typically on top of the previously shown TLS scenario, the sender and the recipient can utilize encryption and decryption keys only the two of them agree on in a pairwise fashion. This means no one but them have the ability to encrypt or decrypt messages into or from the channel.
+Alternatively and typically on top of the previously shown TLS scenario, the sender and the recipient can utilize encryption and decryption keys only the two of them agree on in a pairwise fashion. This means no one but them has the ability to encrypt or decrypt messages into or from the channel.
 
 In theory, the first thing they need to do is to reach an agreement on the keys to be used. Ideally this should happen directly between the sender and recipient, without intermediaries, and frequently through some sort of physical interaction.
 
 <div style="text-align:center"><img src="/static/img/e2ee/e2ee.png" /></div>
 
-**In practice, this is rarely done**. Most platforms incorporate security trade-offs in this step where this agreement is by default granted. This initial authentication is granted based on some other known info such as the phone number that is used. WhatsApp in this case, by forcing users to go through a [phone number proof of ownership](https://faq.whatsapp.com/en/kaios/26000179/), implicitly authenticates users.
+**In practice, this is rarely done**. Most platforms incorporate security trade-offs in this step where this agreement is by reached by default. This initial authentication is granted based on some other known info such as the phone number that is used. WhatsApp in this case, by forcing users to go through a [phone number proof of ownership](https://faq.whatsapp.com/en/kaios/26000179/), implicitly authenticates users (which might not be [the same thing](https://makensi.es/phishing/mobile/mfa/2018/12/20/Why-SMS-Swapping-is-still-a-thing.html))
 
 
 
@@ -81,11 +81,11 @@ On top of that, WhatsApp offers the posibility to verify the party with access t
 
 <div style="text-align:center"><img src="/static/img/e2ee/e2ee2.png" /></div>
 
-Then with this agreement, you can establish a secure end-to-end encrypted channel with the other party in a way that not even the platform owner can read or modify the data. 
+Then with this agreement, you can establish a secure end-to-end encrypted channel with the other party in a way that not even the platform owner could read or modify the data. 
 
 <div style="text-align:center"><img src="/static/img/e2ee/e2ee3.png" /></div>
 
-For protocols like the one used by WhatsApp (Signal protocol), the technical side of how this is actually accomplished is [publicly documented and available for review](https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf). For other protocols, it is not and sometimes puts their security [under scrutiny](https://news.ycombinator.com/item?id=6916860). This of course is overwhelming for most people, so in the end, there's always a component of trust involved. [Information Security Experts](https://twitter.com/tqbf/status/951231270025158657) are here to help you, but again, some positions on the matter may vary.
+For protocols like the one used by WhatsApp (Signal protocol), the technical side of how this is actually accomplished is [publicly documented and available for review](https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf). For other protocols, it is not and this fact sometimes puts their security [under scrutiny](https://news.ycombinator.com/item?id=6916860). This of course is overwhelming for most people, so in the end, there's always a component of trust involved. [Information Security Experts](https://twitter.com/tqbf/status/951231270025158657) are here to help you, but again, some positions on the matter may vary.
 
 More on that later.
 
