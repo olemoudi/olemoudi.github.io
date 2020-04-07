@@ -91,7 +91,7 @@ More on that later.
 
 # [WhatsApp has E2EE, how about other platforms?](#other)
 
-Once we understand what E2EE means, when choosing a platform to communicate with your contacts, you may want to do an informed decision on which actually provides you with this sort of protection.
+Once we understand what E2EE means, when choosing a platform to communicate with your contacts, you may want to do an informed decision on which one actually provides you with this sort of protection.
 
 With dozens of instant-messaging platforms sprouting every year, it can be pointless to present a comprehensive list. The [network-effect](https://en.wikipedia.org/wiki/Network_effect) predates smaller ones and dictates which ones you will most probably end-up using. Because of this it is important to at least understand the posture of the most popular ones.
 
