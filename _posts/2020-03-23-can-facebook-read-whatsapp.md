@@ -117,7 +117,7 @@ Short answer: most.
 
 E2EE is the new kid on the block. Its availability on some of the most popular platforms used today should not make us forget that we have been sending data to our contacts for decades without E2EE. 
 
-Among all the ways we use to send data without E2EE, email remains the most misunderstood channel security-wise. **Email is not made for sending secrets**. It will never be. There's a general industry consensus that modern E2EE protocols were invented for a reason, so we should not try to modify existing ancient protocols trying to step up their security game artificially. [Email is unsafe and cannot be made safe](https://latacora.micro.blog/2020/02/19/stop-using-encrypted.html).
+Among all the ways used to send data without E2EE, email remains the most misunderstood channel security-wise. **Email is not made for sending secrets**. It will never be. There's a general industry consensus that modern E2EE protocols were invented for a reason, so we should not try to modify existing ancient protocols trying to step up their security game artificially. [Email is unsafe and cannot be made safe](https://latacora.micro.blog/2020/02/19/stop-using-encrypted.html).
 
 In absence of any information, you should assume that the data you send over the internet is done merely under the TLS model we saw earlier. You now should be able to understand which threats this model protects against and which ones prevail. You should remain sensitive to this fact.
 
