@@ -315,7 +315,7 @@ Beyond mere E2EE technical or legal topics, there are other aspects to understan
 
 Since WhatsApp does not store your messages, users are encouraged to use external cloud storage services to save chat copies, namely, [Google Drive](https://faq.whatsapp.com/en/android/28000019/) and [iCloud](https://faq.whatsapp.com/en/iphone/26000285).
 
-It goes without saying that those services open up another way for third parties to potentially get access to your messages. Analysis of each cloud storage option would call for an article such as this one by themselves.
+It goes without saying that those services open up another way for third parties to potentially get access to your messages. Each cloud storage option would call for separate analysis by themselves.
 
 <a name="metadata"></a>
 
