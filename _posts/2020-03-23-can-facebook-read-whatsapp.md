@@ -42,8 +42,7 @@ But how much privacy are users giving away?
 Let's present some relevant information to help us get a clearer picture.
 
 <a name="understanding"></a>
-[Understanding End-to-End Encryption (E2EE)](#understanding)
-======
+## [Understanding End-to-End Encryption (E2EE)](#understanding)
 
 <a name="tls"></a>
 # [How encrypted communications typically work](#tls)
@@ -66,7 +65,7 @@ Regardless, for particularly sensitive communications **the point might not be w
 
 
 <a name="e2ee"></a>
-## [Enter End-to-End Encryption](#e2ee)
+# [Enter End-to-End Encryption](#e2ee)
 
 Alternatively and typically on top of the previously shown TLS scenario, the sender and the recipient can utilize encryption and decryption keys only the two of them agree on in a pairwise fashion. This means no one but them have the ability to encrypt or decrypt messages into or from the channel.
 
@@ -92,7 +91,7 @@ More on that later.
 
 <a name="other"></a>
 
-## [WhatsApp has E2EE, how about other platforms?](#other)
+# [WhatsApp has E2EE, how about other platforms?](#other)
 
 Once we understand what E2EE means, when choosing a platform to communicate with your contacts, you may want to do an informed decision on which actually provides you with this sort of protection.
 
@@ -114,7 +113,7 @@ And then the case of dubious marketing. For example [Zoom was caught recently](h
 
 <a name="otherbad"></a>
 
-## [Which platforms are not end-to-end encrypted?](#otherbad)
+# [Which platforms are not end-to-end encrypted?](#otherbad)
 
 Short answer: most.
 
@@ -126,7 +125,7 @@ In absence of any information, you should assume that the data you send over the
 
 <a name="trust"></a>
 
-# [The Trust Factor](#trust)
+## [The Trust Factor](#trust)
 
 Earlier in the article, we introduced the trust factor that affects the choice of platforms to communicate. [Ben Nagy](https://twitter.com/rantyben) was very eloquent years ago when he wrote about the implications of *[outsourcing understanding](https://lists.immunityinc.com/pipermail/dailydave/2013-September/000450.html)*.
 
@@ -140,7 +139,7 @@ It is not reasonable to assume that you will achieve complete certainty about th
 
 <a name="badcontext"></a>
 
-# [Context suggesting WhatsApp could be eavesdropped](#badcontext)
+## [Context suggesting WhatsApp could be eavesdropped](#badcontext)
 
 Ever since WhatsApp was acquired by Facebook, their trustworthiness has been put under scrutiny. This is mainly because Facebook, first of all, has an horrendous reputation among users (and people in general whether they use the platform or not) in terms of plausible monetization of private data.
 
@@ -148,7 +147,7 @@ On top of that, their track record does not help building trust on a platform fu
 
 <a name="sample"></a>
 
-## [A sample of past privacy related Facebook incidents](#sample)
+# [A sample of past privacy related Facebook incidents](#sample)
 
 This is a by-no-means-comprehensive sample of recent news of concern from a privacy perspective. Despite WhatsApp has not suffered any major privacy incident yet, these may however help showcase examples of foreseeable incidents.
 
@@ -180,7 +179,7 @@ This is a by-no-means-comprehensive sample of recent news of concern from a priv
 
 <a name="suggest"></a>
 
-## [What does the previous sample suggest?](#suggest)
+# [What does the previous sample suggest?](#suggest)
 
 Facebook does indeed need to somehow monetize their userbase. Platform advertising seems the most straighforward source of income for them but things are more complicated than that. Seems plausible to assume quirks in EULA agreements, metadata profiling or just borderline harvesting of private data through legal loopholes will continue in the future for them to continue being profitable. In the end, users cannot find any statement saying that data shared in the platform will remain private under **all** circumstances.
 
@@ -188,7 +187,7 @@ Does this mean they have today (or want to have in the future) access to the mes
 
 <a name="badle"></a>
 
-## [Relationship with Law Enforcement](#badle)
+# [Relationship with Law Enforcement](#badle)
 
 Besides that, Facebook does publish [guidelines for Law Enforcement Authorities](https://www.facebook.com/safety/groups/law/guidelines/), clearly showing that potentially all of your data will be made available to them upon a valid subpoena. If you remember what we saw earlier about channels without E2EE, this basically means that data is available also potentially to State Actors or malicious parties that happen to compromise the Facebook Platform.
 
@@ -202,7 +201,7 @@ This applies to Facebook platform, not necessarily to WhatsApp. In fact, as you 
 
 <a name="clumsy"></a>
 
-## [Plain Clumsyness](#clumsy)
+# [Plain Clumsyness](#clumsy)
 
 Ok so just because WhatsApp is owned by Facebook, which seems to be a company with certain tendency to gravitate towards private data in order to maintain business, it does not mean that they will not honor the rules of end-to-end encryption. Maybe they really want to maintain privacy and confidentiality of WhatsApp messages.
 
@@ -228,7 +227,7 @@ And this happens to be true even for companies that take pride on respect for th
 
 <a name="goodcontext"></a>
 
-# [Context suggesting WhatsApp messages cannot be read by third parties (not even themselves)](#goodcontext)
+## [Context suggesting WhatsApp messages cannot be read by third parties (not even themselves)](#goodcontext)
 
 So yeah, based on what we just saw and in absence of any other indicators, it could seem reasonable to just tilt the judgement on the safe side and just assume that everything you send through WhatsApp can indeed be read at some point by a man in the middle.
 
@@ -236,7 +235,7 @@ However, there are also **strong arguments that point in the opposite direction*
 
 <a name="goodle"></a>
 
-## [WhatsApp Law Enforcement Guidelines](#goodle)
+# [WhatsApp Law Enforcement Guidelines](#goodle)
 
 As we saw earlier, Facebook does include in their [guidelines for Law Enforcement Authorities](https://www.facebook.com/safety/groups/law/guidelines/) a statement that talks about disclosing private data under certain conditions. However, [WhatsApp offer its own version of the guidelines](https://faq.whatsapp.com/en/general/26000050) where the statement is a bit different.
 
@@ -250,7 +249,7 @@ One could argue these are outright lies, but there are indeed cases where Law En
 
 <a name="nobackdoors"></a>
 
-## [Publicly advertised no backdoors policy](#nobackdoors)
+# [Publicly advertised no backdoors policy](#nobackdoors)
 
 WhatsApp staff have no trouble ocasionally engaging in online boards discussing news that suggest they maybe lying in their terms or that maybe there's a state agency backdoor somewhere. Here's the latest take of [Will Carthcart](https://www.linkedin.com/in/will-cathcart-9bb6605/), Head of WhatsApp, on [some news](https://www.bloomberg.com/news/articles/2019-09-28/facebook-whatsapp-will-have-to-share-messages-with-u-k-police) about potential sharing of message data to UK authorities:
 
@@ -261,7 +260,7 @@ WhatsApp staff have no trouble ocasionally engaging in online boards discussing 
 
 <a name="moxie"></a>
 
-## [Competitors publicly vowing for WhatsApp E2EE](#moxie)
+# [Competitors publicly vowing for WhatsApp E2EE](#moxie)
 
 Moxie Marlinspike co-runs the instant messaging platform known as Signal, [frequently mentioned](https://theintercept.com/2016/06/22/battle-of-the-secure-messaging-apps-how-signal-beats-whatsapp/) as the beacon of privacy and security for the industry. He was the creator of the Signal-protocol which lies at the heart of WhatsApp as their base implementation of E2EE.
 
@@ -275,7 +274,7 @@ We will examine this exact issue [later in the article](#limbo), but regading po
 
 <a name="core"></a>
 
-## [When privacy is core business: The San Bernardino Case](#core)
+# [When privacy is core business: The San Bernardino Case](#core)
 
 At this point it is undeniable that WhatsApp takes pride in the measures they have deployed to protect the privacy of your messages. The quest for earning respect and trust from your users is a long journey, in which you only need to mess things up once to lose all your progress.
 
@@ -293,13 +292,13 @@ This constitutes an actual case of a company defending the privacy of their user
 
 <a name="plus"></a>
 
-# [Additional Relevant Information on the Security of your Chats](#plus)
+## [Additional Relevant Information on the Security of your Chats](#plus)
 
 Beyond mere E2EE technical or legal topics, there are other aspects to understand in order to get the full picture of what affect the privacy of the WhatsApp platform.
 
 <a name="bugs"></a>
 
-## [Bugs on client software](#bugs)
+# [Bugs on client software](#bugs)
 
 **E2EE is completely vulnerable of misbehaving clients**. That is, any code on the devices that establish the E2EE communication ultimately has access to all the data you send and receive. Because of this, your data is still vulnerable to physical device compromise, proximity attacks or just rare bugs like this one from 2019.
 
@@ -312,7 +311,7 @@ Beyond mere E2EE technical or legal topics, there are other aspects to understan
 
 <a name="backups"></a>
 
-## [WhatsApp Backups](#backups)
+# [WhatsApp Backups](#backups)
 
 Since WhatsApp does not store your messages, users are encouraged to use external cloud storage services to save chat copies, namely, [Google Drive](https://faq.whatsapp.com/en/android/28000019/) and [iCloud](https://faq.whatsapp.com/en/iphone/26000285).
 
@@ -320,7 +319,7 @@ It goes without saying that those services open up another way for third parties
 
 <a name="metadata"></a>
 
-## [The Metadata is the actual Message](#metadata)
+# [The Metadata is the actual Message](#metadata)
 
 When using WhatsApp consider that the platform (and thus potentially Facebook) have access to all the metadata that you generate.
 
@@ -337,7 +336,7 @@ This data alone could be enough to cause a hugh impact on the privacy of most pe
 
 <a name="limbo"></a>
 
-## [Automatic Message retransmission](#limbo)
+# [Automatic Message retransmission](#limbo)
 
 [Moxie's post](https://signal.org/blog/there-is-no-whatsapp-backdoor/) defending the absence of backdoors in WhatsApp was motivated by people getting acquainted with some quirk in WhatsApp platform that is relevant to the discussion.
 
@@ -359,7 +358,7 @@ Other less prominent but equally right voices were raised against claims that th
 
 <a name="abuse"></a>
 
-## [E2EE, Content moderation and Abuse](#abuse)
+# [E2EE, Content moderation and Abuse](#abuse)
 
 E2EE is great but there's another catch: if service providers cannot look at what you send or receive... how are they supposed to fight abuse?
 
@@ -381,7 +380,7 @@ Safety and Privacy often are traded-off. Another take on this:
 
 <a name="conclusion"></a>
 
-# [Conclusion](#conclusion)
+## [Conclusion](#conclusion)
 
 This article presents a collection of relevant information that may help you decide for yourself how probable is that the messages that you send through WhatsApp can be read at some point by unauthorized parties.
 
