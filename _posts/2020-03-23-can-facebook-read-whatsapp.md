@@ -214,7 +214,7 @@ Exhibit A:
 
 On top of that, unfortunately even if no failures or bugs were found on WhatsApp, this does not guarantee that some leak is yet to be discovered.   Quoting [a whitepaper on the matter](https://www.microsoft.com/en-us/research/wp-content/uploads/2015/09/unfalsifiabilityOfSecurityClaims.pdf) from Microsoft:
 
->*there is an inherent asymmetry in computer security: things can be declared insecure by observation, but not the reverse. **There is no observation that allows us to declare an arbitrary system or technique secure**.*
+>*There is an inherent asymmetry in computer security: things can be declared insecure by observation, but not the reverse. **There is no observation that allows us to declare an arbitrary system or technique secure**.*
 
 And this happens to be true even for companies that take pride on respect for the privacy of their users
 
@@ -276,7 +276,7 @@ We will examine this exact issue [later in the article](#limbo), but regading po
 
 At this point it is undeniable that WhatsApp takes pride in the measures they have deployed to protect the privacy of your messages. The quest for earning respect and trust from your users is a long journey, in which you only need to mess things up once to lose all your progress.
 
-When the privacy of your users becomes one of the core values of your business, things can get complicated after the [Four Horsemen of the Information Apocalypse](https://www.schneier.com/blog/archives/2019/12/scaring_people_.html)knock on your door. 
+When the privacy of your users becomes one of the core values of your business, things can get complicated after the [Four Horsemen of the Information Apocalypse](https://www.schneier.com/blog/archives/2019/12/scaring_people_.html) knock on your door. 
 
 The San Bernardino case was the first time company core values, and platform privacy were put before state abilities to fight the horsemen.
 
