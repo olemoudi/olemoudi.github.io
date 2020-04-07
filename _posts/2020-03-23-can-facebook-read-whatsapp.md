@@ -292,7 +292,7 @@ This constitutes an actual case of a company defending the privacy of their user
 
 ## [Additional Relevant Information on the Security of your Chats](#plus)
 
-Beyond mere E2EE technical or legal topics, there are other aspects to understand in order to get the full picture of what affect the privacy of the WhatsApp platform.
+Beyond mere E2EE technical or legal topics, there are other aspects to understand in order to get the full picture of what could affect the privacy of the WhatsApp platform.
 
 <a name="bugs"></a>
 
