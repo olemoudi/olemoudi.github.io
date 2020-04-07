@@ -103,7 +103,7 @@ On the other hand, some platforms such as [Telegram](https://telegram.org/) offe
 
 There's also the previously mentioned point of whether the E2EE implementation is available for public review. Telegram's MTProto has had it's fair share of heat in this regard. And you will find sides defending opposing realities [[1](https://eprint.iacr.org/2015/1177.pdf)][[2](https://core.telegram.org/mtproto)]. 
 
-> If guys with a PhD IN CRYPO don’t even know what your crypto protocols are defending against, that’s a bad sign. Telegram might not be broken, but it might not be secure either. These statements are equally true… and that is exactly why you should not use it. No one has a clue why it does what it does
+> *If guys with a PhD IN CRYPO don’t even know what your crypto protocols are defending against, that’s a bad sign. Telegram might not be broken, but it might not be secure either. These statements are equally true… and that is exactly why you should not use it. No one has a clue why it does what it does*
 > 
 > [COMSEC Beyond Encryption, 2014](https://grugq.github.io/presentations/COMSEC%20beyond%20encryption.pdf)
 
