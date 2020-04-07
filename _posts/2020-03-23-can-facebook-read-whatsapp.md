@@ -117,7 +117,7 @@ Short answer: most.
 
 E2EE is the new kid on the block. Its availability on some of the most popular platforms used today should not make us forget that we have been sending data to our contacts for decades without E2EE. 
 
-Among all the ways used to send data without E2EE, email remains the most misunderstood channel security-wise. **Email is not made for sending secrets**. It will never be. There's a general industry consensus that modern E2EE protocols were invented for a reason, so we should not try to modify existing ancient protocols trying to step up their security game artificially. [Email is unsafe and cannot be made safe](https://latacora.micro.blog/2020/02/19/stop-using-encrypted.html).
+Among all the ways used to send data without E2EE, email remains the most misunderstood channel security-wise. **Email was not built for sending secrets**. It will never be. There's a general industry consensus that modern E2EE protocols were invented for a reason, so we should not try to modify existing ancient protocols trying to step up their security game artificially. [Email is unsafe and cannot be made safe](https://latacora.micro.blog/2020/02/19/stop-using-encrypted.html).
 
 In absence of any information, you should assume that the data you send over the internet is done merely under the TLS model we saw earlier. You now should be able to understand which threats this model protects against and which ones prevail. You should remain sensitive to this fact.
 
@@ -262,7 +262,7 @@ WhatsApp staff have no trouble ocasionally engaging in online boards discussing 
 
 Moxie Marlinspike co-runs the instant messaging platform known as Signal, [frequently mentioned](https://theintercept.com/2016/06/22/battle-of-the-secure-messaging-apps-how-signal-beats-whatsapp/) as the beacon of privacy and security for the industry. He was the creator of the Signal-protocol which lies at the heart of WhatsApp as their base implementation of E2EE.
 
-In 2017 The Guardian featured an story where it claimed that WhastApp contained a backdoor enabling authorities to access to end-to-end encrypted comms. An actual misunderstanding of some quirk of the platform was quickly twisted into a backdoor story. 
+In 2017 The Guardian featured a story where it claimed that WhastApp contained a backdoor enabling authorities to access to end-to-end encrypted comms. An actual misunderstanding of some quirk of the platform was quickly twisted into a backdoor story. 
 
 We will examine this exact issue [later in the article](#limbo), but regading potential backdoors, heres what Moxie himself said:
 
@@ -395,8 +395,6 @@ Peace
 
   *Header photo by Rachit Tank ([www.unsplash.com](https://unsplash.com/photos/lZBs-lD9LPQ))*
 
-
-</div>
 
 
 
