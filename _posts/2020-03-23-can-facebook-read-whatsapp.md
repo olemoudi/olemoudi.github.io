@@ -129,11 +129,11 @@ In absence of any information, you should assume that the data you send over the
 
 Earlier in the article, we introduced the trust factor that affects the choice of platforms to communicate. [Ben Nagy](https://twitter.com/rantyben) was very eloquent years ago when he wrote about the implications of *[outsourcing understanding](https://lists.immunityinc.com/pipermail/dailydave/2013-September/000450.html)*.
 
-> If you happen to actually BE a person of interest, however, "better than nothing" is actually worse than nothing. If you had zero crypto, you might actually think about the content and traffic / timing patterns of your comms. If you had no 'anonymisation' then you might actually give a shit when and from where you connect. [...] if you don't have a strong mental picture of these things BEFORE you start deploying tools and being all crypto-ninja-slash-stealth-sexy-leopard, then you're going to see exactly what that worst case outcome looks like from the inside.
+> *If you happen to actually BE a person of interest, however, "better than nothing" is actually worse than nothing. If you had zero crypto, you might actually think about the content and traffic / timing patterns of your comms. If you had no 'anonymisation' then you might actually give a shit when and from where you connect. [...] if you don't have a strong mental picture of these things BEFORE you start deploying tools and being all crypto-ninja-slash-stealth-sexy-leopard, then you're going to see exactly what that worst case outcome looks like from the inside.*
 
 It is not reasonable to assume that you will achieve complete certainty about the confidentiality of your data when using third party platforms. In the end, you will have to trust someone's claims about the security of each particular platform. There's another recent take on this by [TheGrugq](https://twitter.com/thegrugq)
 
-> The school of thought that holds that all communication failures are the fault of developers for not making things SO usable and pervasive that “average users” cannot ever get things wrong is stupid. **It outsources understanding to the developers of those “usable systems” which also outsources trust - but those devs won’t be going to be going to jail for you**
+> *The school of thought that holds that all communication failures are the fault of developers for not making things SO usable and pervasive that “average users” cannot ever get things wrong is stupid. **It outsources understanding to the developers of those “usable systems” which also outsources trust - but those devs won’t be going to be going to jail for you***
 >
 > [COMSEC Beyond Encryption](https://grugq.github.io/presentations/COMSEC%20beyond%20encryption.pdf)
 
@@ -195,7 +195,7 @@ Besides that, Facebook does publish [guidelines for Law Enforcement Authorities]
 
 Straight from the guidelines:
 
->A search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures upon a showing of probable cause is required to compel the **disclosure of the stored contents of any account, which may include messages, photos, videos, timeline posts, and location information**
+>*A search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures upon a showing of probable cause is required to compel the **disclosure of the stored contents of any account, which may include messages, photos, videos, timeline posts, and location information***
 
 This applies to Facebook platform, not necessarily to WhatsApp. In fact, as you will see later in this article, these guidelines are not inherited by WhatsApp. But since in this section we are identifying potential indicators of welcoming relationships with Law Enforcement, it may be relevant to know Facebook official position in that regard.
 
@@ -253,9 +253,9 @@ One could argue these are outright lies, but there are indeed cases where Law En
 
 WhatsApp staff have no trouble ocasionally engaging in online boards discussing news that suggest they maybe lying in their terms or that maybe there's a state agency backdoor somewhere. Here's the latest take of [Will Carthcart](https://www.linkedin.com/in/will-cathcart-9bb6605/), Head of WhatsApp, on [some news](https://www.bloomberg.com/news/articles/2019-09-28/facebook-whatsapp-will-have-to-share-messages-with-u-k-police) about potential sharing of message data to UK authorities:
 
-> We were surprised to read this story and are not aware of discussions that would force us to change our product. **We believe people have a fundamental right to have private conversations. End-to-end encryption protects that right for over a billion people every day**.
+> *We were surprised to read this story and are not aware of discussions that would force us to change our product. **We believe people have a fundamental right to have private conversations. End-to-end encryption protects that right for over a billion people every day***.
 >
->**We will always oppose government attempts to build backdoors** because they would weaken the security of everyone who uses WhatsApp including governments themselves. In times like these we must stand up both for the security and the privacy of our users everywhere. We will continue do so.
+>***We will always oppose government attempts to build backdoors** because they would weaken the security of everyone who uses WhatsApp including governments themselves. In times like these we must stand up both for the security and the privacy of our users everywhere. We will continue do so.*
 [Will Carthcart on HackerNews, 2019](https://news.ycombinator.com/item?id=21102696)
 
 <a name="moxie"></a>
@@ -268,7 +268,7 @@ In 2017 The Guardian featured an story where it claimed that WhastApp contained 
 
 We will examine this exact issue [later in the article](#limbo), but regading potential backdoors, heres what Moxie himself said:
 
->  We believe that WhatsApp remains a great choice for users concerned with the privacy of their message content.
+>  *We believe that WhatsApp remains a great choice for users concerned with the privacy of their message content.*
 [Moxie Marlinspike at Signal Blog, 2017](https://signal.org/blog/there-is-no-whatsapp-backdoor/)
 
 
@@ -282,7 +282,7 @@ When the privacy of your users becomes one of the core values of your business, 
 
 The San Bernardino case was the first time company core values, and platform privacy were put before state abilities to fight the horsemen.
 
-> In 2015 and 2016, **Apple Inc. received and objected to or challenged at least 11 orders** issued by United States district courts under the All Writs Act of 1789. Most of these seek to compel Apple "to use its existing capabilities to extract data like contacts, photos and calls from locked iPhones running on operating systems iOS 7 and older" **in order to assist in criminal investigations and prosecutions**. A few requests, however, involve phones with more extensive security protections, which Apple has no current ability to break. These orders would compel Apple to write new software that would let the government bypass these devices' security and unlock the phones.
+> *In 2015 and 2016, **Apple Inc. received and objected to or challenged at least 11 orders** issued by United States district courts under the All Writs Act of 1789. Most of these seek to compel Apple "to use its existing capabilities to extract data like contacts, photos and calls from locked iPhones running on operating systems iOS 7 and older" **in order to assist in criminal investigations and prosecutions**. A few requests, however, involve phones with more extensive security protections, which Apple has no current ability to break. These orders would compel Apple to write new software that would let the government bypass these devices' security and unlock the phones.*
 >
 > [FBI–Apple encryption dispute, Wikipedia 2020](https://en.wikipedia.org/wiki/FBI%E2%80%93Apple_encryption_dispute)
 
@@ -304,7 +304,7 @@ Beyond mere E2EE technical or legal topics, there are other aspects to understan
 
 ### Bug lets snoopers put spyware on your phone with just a call
 
-> WhatsApp has disclosed a serious vulnerability in the messaging app that gives snoops a way to remotely inject Israeli spyware on iPhone and Android devices simply by calling the target
+> *WhatsApp has disclosed a serious vulnerability in the messaging app that gives snoops a way to remotely inject Israeli spyware on iPhone and Android devices simply by calling the target.*
 >
 > [ZDNet 2019](https://www.zdnet.com/article/update-whatsapp-now-bug-lets-snoopers-put-spyware-on-your-phone-with-just-a-call/)
 
@@ -346,13 +346,13 @@ In essence, WhatsApp servers keep a copy of the encrypted messages that you send
 
 Why? Well, as [Moxie](https://signal.org/blog/there-is-no-whatsapp-backdoor/) puts it:
 
-> When a contact’s key changes, should WhatsApp require the user to manually verify the new key before continuing, or should WhatsApp display an advisory notification and continue without blocking the user. Given the size and scope of WhatsApp’s user base, we feel that their choice to display a non-blocking notification is appropriate.
+> *When a contact’s key changes, should WhatsApp require the user to manually verify the new key before continuing, or should WhatsApp display an advisory notification and continue without blocking the user. Given the size and scope of WhatsApp’s user base, we feel that their choice to display a non-blocking notification is appropriate.*
 
 Other less prominent but equally right voices were raised against claims that this could be considered a backdoor:
 
 ### In Response to Guardian’s Irresponsible Reporting on WhatsApp: A Plea for Responsible and Contextualized Reporting on User Security
 
-> The behavior described in your article is not a backdoor in WhatsApp. This is the overwhelming consensus of the cryptography and security community. It is also the collective opinion of the cryptography professionals whose names appear below. **The behavior you highlight is a measured tradeoff that poses a remote threat  in return for real benefits that help keep users secure**, as we will discuss in a moment.
+> *The behavior described in your article is not a backdoor in WhatsApp. This is the overwhelming consensus of the cryptography and security community. It is also the collective opinion of the cryptography professionals whose names appear below. **The behavior you highlight is a measured tradeoff that poses a remote threat  in return for real benefits that help keep users secure**, as we will discuss in a moment.*
 >
 > [Technosociology post, 2018](http://technosociology.org/?page_id=1687)
 
@@ -364,13 +364,13 @@ E2EE is great but there's another catch: if service providers cannot look at wha
 
 ### Modern anti-spam and E2E crypto
 
->The first problem we have in the E2E context is that reputation databases
+>*The first problem we have in the E2E context is that reputation databases
 require input from *all* mail. We can imagine an email client that knows
 how to decrypt a message, performs feature extraction and then uploads a
 "good mail" or "bad mail" report to some <handwave> central facility. But
 then that central facility is going to learn not only who you are talking
 with but also what links are in the mail. That's probably quite valuable
-information to have. As you add features this problem gets worse.
+information to have. As you add features this problem gets worse.*
 >
 > [Modern anti-spam and E2E crypto](https://moderncrypto.org/mail-archive/messaging/2014/000780.html)
 
