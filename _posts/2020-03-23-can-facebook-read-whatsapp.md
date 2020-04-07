@@ -95,13 +95,13 @@ More on that later.
 
 Once we understand what E2EE means, when choosing a platform to communicate with your contacts, you may want to do an informed decision on which one actually provides you with this sort of protection.
 
-With dozens of instant-messaging platforms sprouting every year, it can be pointless to present a comprehensive list. The [network-effect](https://en.wikipedia.org/wiki/Network_effect) predates smaller ones and dictates which ones you will most probably end-up using. Because of this it is important to at least understand the posture of the most popular ones.
+With dozens of instant-messaging platforms sprouting every year, it would be pointless to present a comprehensive list. The [network-effect](https://en.wikipedia.org/wiki/Network_effect) predates smaller ones and dictates which ones you will most probably end-up using. Because of this it is important to at least understand the posture of the most popular ones.
 
 **Information about the availablity of E2EE on a platform should be easy to find**. It makes sense for the provider to advertise this implementation as much as possible but **it is also important to understand potential loopholes or misleading statements**.
 
 For the case at hand, [WhatsApp advertises their implementation of E2EE](https://faq.whatsapp.com/en/general/28030015/?category=5245250) based on the Signal Protocol by Open Whisper Systems, which is the de-facto standard and [industry acclaimed](http://previous-recipients.levchinprize.com/2/) baseline for E2EE. WhatsApp also [points out](https://faq.whatsapp.com/en/android/28030015/) that E2EE is implemented by default and it is not possible to disable it. 
 
-On the other hand, some platforms such as [Telegram](https://telegram.org/) offer E2EE as a opt-in feature. You need to explicitly enable it by creating what they call a [secret-chat](https://telegram.org/faq#secret-chats). This lack of enforcement by default raises some criticism from the security industry. The less choices you leave to the final user, the easier they will end up making the appropiate choice on each case.
+On the other hand, some platforms such as [Telegram](https://telegram.org/) offer E2EE as a opt-in feature. You need to explicitly enable it by creating what they call a [secret-chat](https://telegram.org/faq#secret-chats). This lack of enforcement by default raises some criticism from the security industry. As [others have put it](https://www.imperialviolet.org/2016/05/16/agility.html), _you should have only one joint and keep it well oiled_.
 
 There's also the previously mentioned point of whether the E2EE implementation is available for public review. Telegram's MTProto has had it's fair share of heat in this regard. And you will find sides defending opposing realities [[1](https://eprint.iacr.org/2015/1177.pdf)][[2](https://core.telegram.org/mtproto)]. 
 
