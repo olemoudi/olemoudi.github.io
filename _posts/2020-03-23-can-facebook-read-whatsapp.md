@@ -28,7 +28,9 @@ This article is divided into the following major sections:
 ## [Introduction & Context](#intro)
 
 <div style="text-align:center"><img src="/static/img/e2ee/banner.png" /></div>
-
+ 
+  
+  
 Much has been written about the privacy tax that companies impose on their users. The infamously overstated _if the product is free, then you are the product_ is frequently raised against the security and privacy of platforms where users share personal information. But are these claims mere uninformed fearmongering which stems from lack of technical knowledge? Do we ignore other facts that point in the opposite direction? Or are they completely justified?
 
 WhatsApp has gotten its fair share of heat in this regard, and it is understandable. Users intensively use this platform to send hundreds of messages each day without paying a single cent for the service. This situation raises some eyebrows and probably suggests that something is amiss with the whole deal. Is Facebook profitting somehow off the memes I send through WhatsApp? 
