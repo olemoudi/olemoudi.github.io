@@ -342,7 +342,7 @@ This data alone could be enough to cause huge impact on the privacy of most peop
 
 In essence, WhatsApp servers keep a copy of the encrypted messages that you send but which are not yet delivered (e.g. because the recipient's phone is off). Whenever the recipient is available for delivery again, there is a possibility that his key might have changed (e.g. he switched his account to a different device). In this corner case only, WhatsApp reaches out the sender (you) and asks your local WhatsApp Mobile Client to grab the original message, reencrypt it with the new keys and send it again.
 
-**The key point is that this happens without your consent**. This opens up the possibility of someone (e.g. Law Enforcement) to exploit this scenario and obtain copies of the messages that are still in WhatsApp servers waiting for delivery. They just need to overcome the phone verification process for the recipients number, something that is perfectly at reach of Law Enforcement (e.g. just ask the carrier for [a new SIM](https://en.wikipedia.org/wiki/SIM_swap_scam))
+**The key point is that this happens without your consent**. This opens up the possibility of someone (e.g. Law Enforcement) to exploit this scenario and obtain copies of the messages that are still in WhatsApp servers waiting for delivery. They just need to overcome the phone verification process for the recipients number, something that is perfectly within reach for Law Enforcement (e.g. just ask the carrier for [a new SIM](https://en.wikipedia.org/wiki/SIM_swap_scam)).
 
 Why? Well, as [Moxie](https://signal.org/blog/there-is-no-whatsapp-backdoor/) puts it:
 
