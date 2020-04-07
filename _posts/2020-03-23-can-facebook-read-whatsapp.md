@@ -13,9 +13,7 @@ This article is a collection of relevant information and reference links to enri
 
 There are plausible arguments on both sides of the discussion. The article presents them to help the reader take an informed decision about the debate. 
 
-However, as of today, the author's (me) personal opinion remains in line with WhatsApp claims, and this may leak somewhere below. 
-
-Take that into consideration.
+However, be aware that as of today the author's (me) personal opinion remains in line with WhatsApp claims, and this may leak somewhere below. 
 
 This article is divided into the following major sections:
 
