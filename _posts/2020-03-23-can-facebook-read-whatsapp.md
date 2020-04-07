@@ -365,7 +365,7 @@ E2EE is great but there's another catch: if service providers cannot look at wha
 #### Modern anti-spam and E2E crypto
 
 >*The first problem we have in the E2E context is that reputation databases
-require input from *all* mail. We can imagine an email client that knows
+require input from **all** mail. We can imagine an email client that knows
 how to decrypt a message, performs feature extraction and then uploads a
 "good mail" or "bad mail" report to some <handwave> central facility. But
 then that central facility is going to learn not only who you are talking
