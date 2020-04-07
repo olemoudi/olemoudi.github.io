@@ -332,7 +332,7 @@ We refer to metadata as the information that you generate when using a service l
 * Size of messages
 * When and how you interact with the app
 
-This data alone could be enough to cause a hugh impact on the privacy of most people. **If you consider the amount of enriched information that you can extract from metadata only, you would reconsider if access to the actual contents of messages is really necessary to profile people in a way that clearly has a toll on their privacy**.
+This data alone could be enough to cause huge impact on the privacy of most people. **If you consider the amount of enriched information that you can extract from metadata only, you would reconsider if access to the actual contents of messages is really necessary to profile people in a way that clearly has a toll on their privacy**.
 
 <a name="limbo"></a>
 
