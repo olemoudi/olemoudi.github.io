@@ -29,7 +29,7 @@ This article is divided into the following major sections:
 
 # [Introduction & Context](#intro)
 
-<div style="text-align:center"><img src="../static/img/e2ee/banner.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/banner.png" /></div>
 
 Much has been written about the privacy tax that companies impose on their users. The infamously overstated _if the product is free, then you are the product_ is frequently raised against the security and privacy of platforms where users share personal information. But are these claims mere uninformed fearmongering which stems from lack of technical knowledge? Do we ignore other facts that point in the opposite direction? Or are they completely justified?
 
@@ -51,17 +51,17 @@ First, let's see how the most common form of channel encryption works: [**Transp
 
 Whenever you connect to your bank, to an ecommerce or, thankfully in 2020, to [almost any site](https://transparencyreport.google.com/https/overview?hl=en) your device establishes an encrypted communication channel to protect the confidentiality of the data you receive or send to that server. Typically, this happens as shown in the following picture. As you can see, potential eavesdroppers that happen to live between you and the server cannot read or modify the exchanged data because they don't have the decryption key.
 
-<div style="text-align:center"><img src="../static/img/e2ee/tls.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/tls.png" /></div>
 
 If you happen to be sending data to someone else, the server typically needs to act as a man in the middle of that communication. In this situation, eavesdroppers still cannot read or modify the data you send. But here's the catch: **the server can**. Why? because the encrypted TLS channels only happen in the two legs of the trip, but not the middle point. The encryption key agreement in TLS happens twice, first between you and the server and then, between the server and the recipient. This means the server has the two decryption keys for each encrypted TLS connection. 
 
-<div style="text-align:center"><img src="../static/img/e2ee/tls2.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/tls2.png" /></div>
 
 As shown in the picture, this means **the owner of the service can, in theory, read and modify everything that you send**. This does not mean that he should, but the option is there. This is why privacy matters on free services (and even paid ones) become iffy. How do you know the owner is behaving? Often you can't.
 
 Regardless, for particularly sensitive communications **the point might not be who else has the capability to read the messages, but if anyone can at all**. In this sense, regardless of the ethics or business model of the service owner, the opportunity remains available for law enforcement, state agencies and malicious actors alike.
 
-<div style="text-align:center"><img src="../static/img/e2ee/tls3.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/tls3.png" /></div>
 
 
 <a name="e2ee"></a>
@@ -71,7 +71,7 @@ Alternatively and typically on top of the previously shown TLS scenario, the sen
 
 In theory, the first thing they need to do is to reach an agreement on the keys to be used. Ideally this should happen directly between the sender and recipient, without intermediaries, and frequently through some sort of physical interaction.
 
-<div style="text-align:center"><img src="../static/img/e2ee/e2ee.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/e2ee.png" /></div>
 
 **In practice, this is rarely done**. Most platforms incorporate security trade-offs in this step where this agreement is by default granted. This initial authentication is granted based on some other known info such as the phone number that is used. WhatsApp in this case, by forcing users to go through a [phone number proof of ownership](https://faq.whatsapp.com/en/kaios/26000179/), implicitly authenticates users.
 
@@ -79,11 +79,11 @@ In theory, the first thing they need to do is to reach an agreement on the keys 
 
 On top of that, WhatsApp offers the posibility to verify the party with access to an established chat by doing a close contact [QR ceremony](https://faq.whatsapp.com/en/general/28030015). Unless you actually conduct this ceremony with your contacts, you are not actually authenticating users but their phone numbers. 
 
-<div style="text-align:center"><img src="../static/img/e2ee/e2ee2.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/e2ee2.png" /></div>
 
 Then with this agreement, you can establish a secure end-to-end encrypted channel with the other party in a way that not even the platform owner can read or modify the data. 
 
-<div style="text-align:center"><img src="../static/img/e2ee/e2ee3.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/e2ee3.png" /></div>
 
 For protocols like the one used by WhatsApp (Signal protocol), the technical side of how this is actually accomplished is [publicly documented and available for review](https://www.whatsapp.com/security/WhatsApp-Security-Whitepaper.pdf). For other protocols, it is not and sometimes puts their security [under scrutiny](https://news.ycombinator.com/item?id=6916860). This of course is overwhelming for most people, so in the end, there's always a component of trust involved. [Information Security Experts](https://twitter.com/tqbf/status/951231270025158657) are here to help you, but again, some positions on the matter may vary.
 
@@ -191,7 +191,7 @@ Does this mean they have today (or want to have in the future) access to the mes
 
 Besides that, Facebook does publish [guidelines for Law Enforcement Authorities](https://www.facebook.com/safety/groups/law/guidelines/), clearly showing that potentially all of your data will be made available to them upon a valid subpoena. If you remember what we saw earlier about channels without E2EE, this basically means that data is available also potentially to State Actors or malicious parties that happen to compromise the Facebook Platform.
 
-<div style="text-align:center"><img src="../static/img/e2ee/tls3.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/tls3.png" /></div>
 
 Straight from the guidelines:
 
@@ -220,7 +220,7 @@ On top of that, unfortunately even if no failures or bugs were found on WhatsApp
 
 And this happens to be true even for companies that take pride on respect for the privacy of their users
 
-<div style="text-align:center"><img src="../static/img/e2ee/apple.png" /></div>
+<div style="text-align:center"><img src="/static/img/e2ee/apple.png" /></div>
 
 [The Verge 2019](https://www.theverge.com/2019/1/28/18201383/apple-facetime-bug-iphone-eavesdrop-listen-in-remote-call-security-issue)
 
