@@ -42,10 +42,11 @@ But how much privacy are users giving away?
 Let's present some relevant information to help us get a clearer picture.
 
 <a name="understanding"></a>
-# [Understanding End-to-End Encryption (E2EE)](#understanding)
+[Understanding End-to-End Encryption (E2EE)](#understanding)
+======
 
 <a name="tls"></a>
-## [How encrypted communications typically work](#tls)
+# [How encrypted communications typically work](#tls)
 
 First, let's see how the most common form of channel encryption works: [**Transport Layer Security or TLS**](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
