@@ -378,6 +378,15 @@ Safety and Privacy often are traded-off. Another take on this:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">There are product design techniques that can reduce abuse without collecting data, but in a situation where you are dealing with intelligent adversaries, preventing abuse will generally require some reduction of privacy and user choice.</p>&mdash; Alex Stamos (@alexstamos) <a href="https://twitter.com/alexstamos/status/1115628846424838144?ref_src=twsrc%5Etfw">April 9, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
+**UPDATE 25/5/2020**
+
+Facebook seems to be starting to experiment with Messenger analysis to detect abuse (scams, grooming...) even when messages are encrypted. They leverage metadata instead of actual content, which they can't read.
+
+>Facebook today announced new features for Messenger that will alert you when messages appear to come from financial scammers or potential child abusers, displaying warnings in the Messenger app that provide tips and suggest you block the offenders. The feature, which Facebook started rolling out on Android in March and is now bringing to iOS, uses machine learning analysis of communications across Facebook Messenger's billion-plus users to identify shady behaviors. But crucially, Facebook says that the detection will occur only based on metadata—not analysis of the content of messages—so that it doesn't undermine the end-to-end encryption that Messenger offers in its Secret Conversations feature.
+>
+> [Facebook Messenger Adds Safety Alerts—Even in Encrypted Chats](https://www.wired.com/story/facebook-messenger-safety-alerts-encryption/)
+
+
 <a name="conclusion"></a>
 
 ## [Conclusion](#conclusion)
