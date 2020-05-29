@@ -7,7 +7,7 @@ tags: [foo, bar]                      # (custom) tags only for meta `property="a
 image: cargocult.jpg            # (custom) image only for meta `property="og:image"`, save your image # inside path of `static/img/_posts`
 ---
 
-<div style="text-align:center"><img src="/static/img/cargocult.jpg" /></div>
+<div style="text-align:center"><img src="/static/img/cargocult.jpg" /></div><br><br>
 
 
 The concept of **Cargo Cult** as a belief system truly fascinates me. Its paralellism is exceptionally eloquent at explaining things that frequently happen in tech fields such as Information Security. A great summary of the origins of the term follows:
