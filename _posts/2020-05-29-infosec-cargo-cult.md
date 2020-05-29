@@ -20,7 +20,7 @@ The concept of **Cargo Cult** as a belief system truly fascinates me. Its parale
 >
 > [Don't be deceived by cargo cult economics](https://www.nst.com.my/news/2016/07/158616/dont-be-deceived-cargo-cult-economics?d=1) - *New Straits Times 2016*
 
-So in a nutshell the Cargo Cult Syndrome describes undeveloped societies that crave to obtain goods from more advanced societies by merely applying coincidental techniques, tools or processes whimsically. **There is no understanding of what else is necessary for everything to work as expected.**. Because of this, the Infosec Lifecycle ensues:
+So in a nutshell the Cargo Cult Syndrome describes undeveloped societies that crave to obtain goods from more advanced societies by merely applying coincidental techniques, tools or processes whimsically. **There is no understanding of what else is necessary for everything to work as expected**. Because of this, the Infosec Lifecycle ensues:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Infosec lifecycle:<br>It won&#39;t happen<br>It happened<br>Buy shiny tool <br>Happened again<br>Turn it on<br>And again<br>Now tune it<br>And again<br>Buy new shiny tool</p>&mdash; Steve Werby (@stevewerby) <a href="https://twitter.com/stevewerby/status/768419835655098368?ref_src=twsrc%5Etfw">August 24, 2016</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -34,7 +34,7 @@ Cargo Cult and DevOps have been (and still are sometimes) shameful travel compan
 
 Other notorious examples for the Cargo Cult Syndrome in Infosec include things such as [Content-Security-Policy](https://youtu.be/9dCvcq7KkxA?t=1279) and other HTTP Security Headers, SSL Pinning or Web Application Firewalls and Intrusion Detection Systems. We copy those from the industry best practices but we seldom ensure the proceses beneath those are complete. Cryptography in general is another good example. As [@laparisa](https://twitter.com/laparisa) put it: "[Blockchain is not gonna solve all of our security problems](https://www.youtube.com/watch?v=py2qmGbyhlw&feature=youtu.be&t=1572)". Employee security awareness campaigns suffer from the same problem. We rarely complete the process with the steps needed to actually make our users [more resilient to mistakes](https://www.seancassidy.me/phishing-simulations-considered-harmful.html) when handling out their credentials.
 
-Why does this happen? Because we are lazy. [Designing for understandability](https://landing.google.com/sre/resources/foundationsandprinciples/srs-book/) is hard and there are incentives around having to only need to look in a single point to understand security invariants. Nevertheless we should strive to detect when we are falling short when integrating new tools and processes, and suffering from the Cargo Cult Syndrome.
+Why does this happen? Because we are lazy. [Designing for understandability](https://landing.google.com/sre/resources/foundationsandprinciples/srs-book/) is hard and there are incentives around having to only need to look in a single point to understand security invariants. Nevertheless we should strive to detect whether we are falling short when integrating new tools and processes, to avoid the Cargo Cult Syndrome.
 
 
 
