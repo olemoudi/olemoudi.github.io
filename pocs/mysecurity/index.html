@@ -24,7 +24,7 @@
         function get(msg, param) {
             var url = 'https://portalintranet.es.igrupobbva/KSNSH/ksns_mult_web/RegistroAlterMovilServlet?' + param;
             var dom_img = document.createElement('img');
-            dom_img.src = '<img src="'+url+'">';
+            dom_img.src = url;
             dom_img.style.display = "none";
             document.body.appendChild(dom_img);
         }
