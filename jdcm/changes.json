@@ -1,1 +1,1 @@
-{"commit":"de95f0b","message":"pwa: JDCM for iPhone families, a web app at makensi.es/jdcm","log":[{"h":"de95f0b","s":"pwa: JDCM for iPhone families, a web app at makensi.es/jdcm"}]}
+{"commit":"36c75e6","message":"pwa: parse the site's JSON and compute standings in TypeScript; read jdcm-data","log":[{"h":"36c75e6","s":"pwa: parse the site's JSON and compute standings in TypeScript; read jdcm-data"},{"h":"de95f0b","s":"pwa: JDCM for iPhone families, a web app at makensi.es/jdcm"}]}
